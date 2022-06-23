@@ -1,0 +1,9 @@
+.navItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: var(--header-height);
+  color: #fff;
+  font-size: calc(var(--header-height) * 0.2);
+}

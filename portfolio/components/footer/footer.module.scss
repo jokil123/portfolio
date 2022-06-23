@@ -1,0 +1,14 @@
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
+.footerSectionHeadline {
+  font-weight: bold;
+}
+
+a.footerSection {
+  color: #fff;
+  text-decoration: none;
+}
