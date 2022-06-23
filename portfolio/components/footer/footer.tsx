@@ -1,19 +1,58 @@
 import Link from "next/link";
 import styles from "./footer.module.scss";
+import AutoHref from "../../components/util/autoHref";
 
 export default function Footer() {
   return (
-    <footer className="noPadding noMargin">
-      <div className={styles.footerSection}>
-        <p className={styles.footerSectionHeadline}>Other Platforms</p>
-        <a href="https://github.com/jokil123">Github</a>
-        <a href="https://www.youtube.com/channel/UCx-_qxi0EN1UvkWeweJ1ZcA">
-          Youtube
-        </a>
-        <a href="discord://jo_kil#1977">Discord</a>
+    <footer className={`${styles.footer} noPadding noMargin`}>
+      <hr className={styles.footerSeparator}></hr>
+      <div className={styles.footerSectionContainer}>
+        <FooterSection
+          sectionName="Other Platforms"
+          linkList={[
+            { text: "Github", href: "https://github.com/jokil123" },
+            {
+              text: "Youtube",
+              href: "https://www.youtube.com/channel/UCx-_qxi0EN1UvkWeweJ1ZcA",
+            },
+            { text: "Discord", href: "discord://jo_kil#1977" },
+          ]}
+        />
+        <FooterSection
+          sectionName="About"
+          linkList={[
+            { text: "Impressum", href: "/impressum" },
+            {
+              text: "Legal",
+              href: "/legal",
+            },
+            { text: "Contact", href: "/contact" },
+          ]}
+        />
       </div>
     </footer>
   );
 }
 
-// export default function FooterSection() {third}
+export function FooterSection(props: FooterSectionProps) {
+  return (
+    <div className={styles.footerSection}>
+      <p className={styles.footerSectionHeadline}>{props.sectionName}</p>
+      <>
+        {props.linkList.map(({ href, text }) => {
+          return (
+            <AutoHref
+              href={href}
+              children={<p className={styles.footerSectionItem}>{text}</p>}
+            />
+          );
+        })}
+      </>
+    </div>
+  );
+}
+
+type FooterSectionProps = {
+  sectionName: string;
+  linkList: { text: string; href: string }[];
+};

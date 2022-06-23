@@ -1,5 +1,6 @@
 :root {
   --header-height: max(7vh, 70px);
+  --text-color: #4f5155;
 }
 
 body {
@@ -7,5 +8,20 @@ body {
   margin: 0;
   margin-top: 10vh;
   font-family: Helvetica, Arial, sans-serif;
-  color: #4f5155;
+  color: var(--text-color);
+}
+
+// Remove Scrollbar
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }

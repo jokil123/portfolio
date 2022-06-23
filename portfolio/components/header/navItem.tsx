@@ -3,7 +3,7 @@ import styles from "./navItem.module.scss";
 
 export default function NavItem(props: NavItemProps) {
   return (
-    <div className={styles.navItem}>
+    <div style={{ backgroundColor: props.color }} className={styles.navItem}>
       {props.external ? (
         <a href={props.url}>{props.text}</a>
       ) : (
