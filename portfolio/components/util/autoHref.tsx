@@ -18,5 +18,5 @@ export default function AutoHref(props: AutoHrefProps) {
 
 type AutoHrefProps = {
   href: string;
-  children: JSX.Element;
+  children: any;
 };
