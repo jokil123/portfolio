@@ -1,5 +1,5 @@
 import { Children } from "react";
-import { isExternalUrl } from "../../util/isExternalUrl";
+import { isExternalUrl } from "../../utils/isExternalUrl";
 import Link from "next/link";
 
 export default function AutoHref(props: AutoHrefProps) {

@@ -42,6 +42,7 @@ export function FooterSection(props: FooterSectionProps) {
         {props.linkList.map(({ href, text }) => {
           return (
             <AutoHref
+              key={text}
               href={href}
               children={<p className={styles.footerSectionItem}>{text}</p>}
             />
