@@ -1,6 +1,7 @@
 import dashify from "dashify";
 import Layout from "../../components/layout";
 import Section from "../../components/section";
+import { camelize } from "../../utils/camelize";
 import { projectByName, ProjectData } from "../../utils/projectData";
 import { getProjects } from "../../utils/projects";
 
@@ -21,16 +22,21 @@ export default function Project(props: ProjectProps) {
 export async function getStaticPaths() {
   return {
     paths: getProjects().map((project) => {
-      dashify(project.name);
+      return {
+        params: {
+          id: dashify(project.name),
+        },
+      };
     }),
     fallback: false,
   };
 }
 
-export function getStaticProps({ params }): ProjectProps {
+export function getStaticProps({ params }) {
   return {
-    project: getProjects[0],
-    // project: projectByName(params.id),
+    props: {
+      project: projectByName(camelize(params.id)),
+    },
   };
 }
 
