@@ -2,8 +2,8 @@ import dashify from "dashify";
 import Layout from "../../components/layout";
 import Section from "../../components/section";
 import { camelize } from "../../utils/camelize";
-import { projectByName, ProjectData } from "../../utils/projectData";
-import { getProjects } from "../../utils/projects";
+import { getProjects, projectByName } from "../../utils/project/projectBuild";
+import { ProjectData } from "../../utils/project/projectData";
 
 export default function Project(props: ProjectProps) {
   return (
