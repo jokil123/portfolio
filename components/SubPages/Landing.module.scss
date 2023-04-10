@@ -1,0 +1,26 @@
+.align {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.titleDecoration {
+  position: relative;
+  width: 12.5rem;
+  aspect-ratio: 11.7/1;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 0.25rem;
+  padding-right: 0.1rem;
+}
+
+.title {
+  padding-bottom: 4rem;
+}
