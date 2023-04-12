@@ -1,6 +1,7 @@
 import MouseWiggle from "@/components/MouseWiggle";
 import Landing from "@/components/SubPages/Landing";
 import ProjectShowcase from "@/components/SubPages/ProjectShowcase";
+import FullPage from "@/components/FullPage";
 
 export default function Home() {
   return (
@@ -14,11 +15,13 @@ export default function Home() {
         imagePath={"/projects/fishermansfriend.jpg"}
         tags={["dev", "threeD", "design"]}
       />
-      <MouseWiggle wiggleStrength={1} wiggleDissipation={0.0001}>
-        <div
-          style={{ height: "100px", width: "200px", backgroundColor: "red" }}
-        ></div>
-      </MouseWiggle>
+      <FullPage>
+        <MouseWiggle wiggleStrength={0.1} wiggleDissipation={0.01}>
+          <div
+            style={{ height: "100px", width: "200px", backgroundColor: "red" }}
+          ></div>
+        </MouseWiggle>
+      </FullPage>
     </>
   );
 }

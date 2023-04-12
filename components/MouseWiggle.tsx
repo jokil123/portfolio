@@ -10,8 +10,8 @@ export default function MouseWiggle(props: MouseWiggleProps) {
       // let multiplier = 1;
 
       setMousePosition({
-        x: mousePosition.x - e.clientX,
-        y: mousePosition.y - e.clientY,
+        x: mousePosition.x + e.movementX,
+        y: mousePosition.y + e.movementY,
       });
     };
 
@@ -19,7 +19,7 @@ export default function MouseWiggle(props: MouseWiggleProps) {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [mousePosition]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,19 +27,18 @@ export default function MouseWiggle(props: MouseWiggleProps) {
         mousePosition.x * mousePosition.x + mousePosition.y * mousePosition.y
       );
 
-      console.log(mousePosition);
-
-      console.log(distance);
+      if (distance < 1) {
+        setMousePosition({ x: 0, y: 0 });
+        return;
+      }
 
       let disapationFactor = Math.exp(-props.wiggleDissipation * distance);
-
-      console.log(disapationFactor);
 
       setMousePosition({
         x: mousePosition.x * disapationFactor,
         y: mousePosition.y * disapationFactor,
       });
-    }, 1);
+    }, 10);
     return () => {
       clearInterval(interval);
     };
@@ -48,7 +47,10 @@ export default function MouseWiggle(props: MouseWiggleProps) {
   return (
     <div
       style={{
-        transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+        transition: "0.01s ease-in-out",
+        transform: `translate(${mousePosition.x * props.wiggleStrength}px, ${
+          mousePosition.y * props.wiggleStrength
+        }px)`,
       }}
     >
       {props.children}
