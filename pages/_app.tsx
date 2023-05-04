@@ -8,8 +8,6 @@ const poppins = Poppins({ weight: ["300", "700"], subsets: ["latin"] });
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Layout>
-      {/* <main className={poppins.className}> */}
-      {/* </main> */}
       <style jsx global>{`
         html {
           font-family: ${poppins.style.fontFamily};

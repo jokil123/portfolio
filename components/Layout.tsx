@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Overlay from "../components/Overlay";
 import styles from "./Layout.module.scss";
+import MouseWiggle from "./MouseWiggle";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [scrollY, setScrollY] = useState(0);
@@ -20,17 +21,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const shouldCollapse = scrollY > 150;
 
   return (
-    <>
+    <div className={"layout"} style={{ height: "100vh", width: "100%" }}>
       <div
-        className={"fixedOverlay"}
+        className={`${styles.contentContainer} noScrollbar`}
+        style={{ overflowY: "scroll" }}
+      >
+        {children}
+      </div>
+      <div
+        className={"fixedOverlay noSelect"}
         style={{
           display: "flex",
           flexDirection: "column",
           position: "fixed",
         }}
       >
-        {/* <Header /> */}
-        {/* <Overlay /> */}
         <div style={{ width: "100%" }}>
           <Header collapsed={shouldCollapse} />
         </div>
@@ -40,10 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
             flexGrow: 1,
           }}
         >
-          <Overlay collapsed={shouldCollapse} />
+          <MouseWiggle wiggleStrength={0.1} wiggleDissipation={0.01}>
+            <Overlay collapsed={shouldCollapse} />
+          </MouseWiggle>
         </div>
       </div>
-      {children}
-    </>
+    </div>
   );
 }

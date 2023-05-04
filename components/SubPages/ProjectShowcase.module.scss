@@ -16,6 +16,7 @@
 }
 
 .projectInfo {
+  position: absolute;
   margin-right: 23rem;
 }
 
@@ -26,6 +27,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .projectImage {

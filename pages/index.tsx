@@ -15,13 +15,6 @@ export default function Home() {
         imagePath={"/projects/fishermansfriend.jpg"}
         tags={["dev", "threeD", "design"]}
       />
-      <FullPage>
-        <MouseWiggle wiggleStrength={0.1} wiggleDissipation={0.01}>
-          <div
-            style={{ height: "100px", width: "200px", backgroundColor: "red" }}
-          ></div>
-        </MouseWiggle>
-      </FullPage>
     </>
   );
 }

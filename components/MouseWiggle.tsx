@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import styles from "./MouseWiggle.module.scss";
 
+// WIP this isn't optimized at all, but it works for now
 export default function MouseWiggle(props: MouseWiggleProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -27,7 +29,7 @@ export default function MouseWiggle(props: MouseWiggleProps) {
         mousePosition.x * mousePosition.x + mousePosition.y * mousePosition.y
       );
 
-      if (distance < 1) {
+      if (distance * props.wiggleStrength < 0.25) {
         setMousePosition({ x: 0, y: 0 });
         return;
       }
@@ -52,6 +54,7 @@ export default function MouseWiggle(props: MouseWiggleProps) {
           mousePosition.y * props.wiggleStrength
         }px)`,
       }}
+      className={styles.mouseWiggle}
     >
       {props.children}
     </div>
