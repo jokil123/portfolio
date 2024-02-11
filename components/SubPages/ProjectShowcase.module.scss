@@ -1,0 +1,40 @@
+.title {
+  font-size: 3.82rem;
+  width: 37rem;
+}
+
+.description {
+  width: 36.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.projectInfo {
+  position: absolute;
+  margin-right: 23rem;
+}
+
+.projectShowcaseContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.projectImage {
+  position: absolute;
+  width: 36.94125rem;
+  aspect-ratio: 591.06/443.54;
+  z-index: -1;
+  margin-left: 25.375rem;
+  filter: brightness(0.65);
+}

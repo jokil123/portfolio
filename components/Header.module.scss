@@ -1,0 +1,28 @@
+.greeble {
+  width: 9rem;
+  height: 1.5rem;
+  position: relative;
+  flex-shrink: 0;
+  // opacity: 0.5;
+}
+
+.header {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 2rem 3.1rem;
+  padding-bottom: 1.5rem;
+  padding-right: 1.87rem;
+  box-sizing: border-box;
+  gap: 5.9rem;
+  // 4.9375
+
+  &.collapsed {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    gap: 3rem;
+  }
+}

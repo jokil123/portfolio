@@ -1,0 +1,16 @@
+.tag {
+  width: 1.5rem;
+  aspect-ratio: 1;
+
+  &.dev {
+    background-color: rgb(240, 70, 70);
+  }
+
+  &.threeD {
+    background-color: rgb(79, 221, 79);
+  }
+
+  &.design {
+    background-color: rgb(60, 60, 238);
+  }
+}
