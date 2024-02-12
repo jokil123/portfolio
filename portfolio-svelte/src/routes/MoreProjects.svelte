@@ -14,7 +14,7 @@
 
 	<a href="/projects">
 		More Projects
-		<img class="linkIcon" src="../images/link_icon.svg" alt="Link" />
+		<img class="linkIcon" src="/images/link_icon.svg" alt="Link" />
 	</a>
 </Page>
 

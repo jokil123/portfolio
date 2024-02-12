@@ -1,16 +1,16 @@
 <script lang="ts">
 	export let href: string = '';
 	export let text: string = '';
-	export let icon: string = '../images/link_icon.svg';
+	export let icon: string = '/images/link_icon.svg';
 </script>
 
 <li>
-	<img class="plusIcon" src="../images/decoration_plus.svg" alt="decoration" />
+	<img class="plusIcon" src="/images/decoration_plus.svg" alt="decoration" />
 
 	<a {href}>{text}</a>
 	<img class="linkIcon" src={icon} alt="icon" />
 
-	<img class="plusIcon" src="../images/decoration_plus.svg" alt="decoration" />
+	<img class="plusIcon" src="/images/decoration_plus.svg" alt="decoration" />
 </li>
 
 <style>

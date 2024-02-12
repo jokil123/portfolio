@@ -2,19 +2,19 @@
 	font-family: 'Poppins';
 	font-style: normal;
 	font-weight: 300;
-	src: url('../fonts/Poppins-Light.ttf') format('truetype');
+	src: url('/fonts/Poppins-Light.ttf') format('truetype');
 }
 
 @font-face {
 	font-family: 'Poppins';
 	font-style: normal;
 	font-weight: 700;
-	src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+	src: url('/fonts/Poppins-Bold.ttf') format('truetype');
 }
 
 @font-face {
 	font-family: 'Abhaya Libre';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/AbhayaLibre-Regular.ttf') format('truetype');
+	src: url('/fonts/AbhayaLibre-Regular.ttf') format('truetype');
 }

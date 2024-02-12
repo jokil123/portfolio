@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let name: string;
-	$: src = `./images/project_icon_${name}.svg`;
+	$: src = `/images/project_icon_${name}.svg`;
 	$: alt = name;
 </script>
 

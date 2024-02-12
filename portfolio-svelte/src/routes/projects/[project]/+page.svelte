@@ -1,6 +1,17 @@
-<h1>Project Info</h1>
+<script lang="ts">
+	import BoldTitle from '$lib/BoldTitle.svelte';
+	import Page from '$lib/Page.svelte';
+	import SvelteMarkdown from 'svelte-markdown';
 
-<p>Project Description</p>
-<img src="https://via.placeholder.com/150" alt="Project" />
+	export let data;
+</script>
 
-<a href="/projects">Back to Projects</a>
+<Page>
+	<BoldTitle title={data.article.meta.title} />
+
+	<SvelteMarkdown source={data.article.content} />
+
+	<img src="https://via.placeholder.com/150" alt="Project" />
+
+	<a href="/projects">Back to Projects</a>
+</Page>

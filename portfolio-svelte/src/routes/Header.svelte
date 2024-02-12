@@ -14,12 +14,12 @@
 		<div class="headerElement">
 			<a href="/">J<b>L</b></a>
 		</div>
-		<img class="headerElement" src="./images/header_decoration.svg" alt="logo" />
+		<img class="headerElement" src="/images/header_decoration.svg" alt="logo" />
 		<button class="headerElement" on:click={toggleMenu}>
 			{#if open}
-				<img class="burger" src="./images/header_nav_close.svg" alt="close menu" />
+				<img class="burger" src="/images/header_nav_close.svg" alt="close menu" />
 			{:else}
-				<img class="burger" src="./images/header_burger.svg" alt="burger menu" />
+				<img class="burger" src="/images/header_burger.svg" alt="burger menu" />
 			{/if}
 		</button>
 	</div>

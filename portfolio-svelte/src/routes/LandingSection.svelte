@@ -12,7 +12,7 @@
 	</div>
 	<!-- // the background video -->
 	<video autoplay muted>
-		<source src="./videos/final.webm" type="video/mp4" />
+		<source src="/videos/final.webm" type="video/mp4" />
 	</video>
 </Page>
 

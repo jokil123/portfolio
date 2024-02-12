@@ -4,14 +4,14 @@
 
 <Page>
 	<h1>About <b>Me</b></h1>
-	<img class="mugshot" src="../images/mugshot.jpg" alt="placeholder" />
-	<a href="../cv.pdf" download>
+	<img class="mugshot" src="/images/mugshot.jpg" alt="placeholder" />
+	<a href="/cv.pdf" download>
 		<div class="cvLink">
 			<div class="line"></div>
-			<img class="plus" src="../images/decoration_plus.svg" alt="decoration" />
+			<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
 			CV
-			<img class="linkIcon" src="../images/link_icon.svg" alt="decoration" />
-			<img class="plus" src="../images/decoration_plus.svg" alt="decoration" />
+			<img class="linkIcon" src="/images/link_icon.svg" alt="decoration" />
+			<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
 			<div class="line"></div>
 		</div>
 	</a>
