@@ -1,9 +1,9 @@
 <script lang="ts">
-	import BoldTitle from '$lib/BoldTitle.svelte';
+	import BoldTitle from '$lib/components/BoldTitle.svelte';
 
-	import Page from '$lib/Page.svelte';
-	import ProjectIcon from '$lib/ProjectIcon.svelte';
-	import ReadMore from '$lib/ReadMore.svelte';
+	import Page from '$lib/components/Page.svelte';
+	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
+	import ReadMore from '$lib/components/ReadMore.svelte';
 	import type { Article } from '$lib/cms';
 
 	export let article: Article;

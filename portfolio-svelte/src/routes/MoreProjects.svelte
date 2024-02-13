@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Page from '$lib/Page.svelte';
-	import ReadMore from '$lib/ReadMore.svelte';
+	import Page from '$lib/components/Page.svelte';
+	import ReadMore from '$lib/components/ReadMore.svelte';
 </script>
 
 <Page>
