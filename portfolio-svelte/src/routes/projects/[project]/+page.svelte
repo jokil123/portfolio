@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BoldTitle from '$lib/components/BoldTitle.svelte';
 	import Page from '$lib/components/Page.svelte';
-	import Carousel from '$lib/components/MediaCarousel.svelte';
+	import MediaCarousel from '$lib/components/MediaCarousel.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
 
 	export let data;
@@ -14,11 +14,15 @@
 		<SvelteMarkdown source={data.article.content} />
 	</div>
 
-	<Carousel>
-		{#each data.article.images as img}
-			<img src={img.url} alt={img.alt} />
-		{/each}
-	</Carousel>
+	<MediaCarousel
+		media={data.article.images.map((i) => {
+			return {
+				type: 'CarouselImage',
+				url: i.url,
+				alt: i.alt
+			};
+		})}
+	/>
 
 	<a href="/projects">Back to Projects</a>
 </Page>
