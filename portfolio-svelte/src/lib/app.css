@@ -10,3 +10,15 @@ h1 {
 	font-weight: 300;
 	font-size: 2.5rem;
 }
+
+img {
+	vertical-align: middle;
+}
+
+a {
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: #00a2ff;
+}

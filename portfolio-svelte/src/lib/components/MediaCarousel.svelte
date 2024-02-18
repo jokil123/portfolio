@@ -22,23 +22,24 @@
 	function previous() {
 		current = (current - 1 + media.length) % media.length;
 	}
+
+	let modalVisible = false;
 </script>
 
-<div class="carousel">
-	{#if media[current].type === 'CarouselImage'}
-		<img src={media[current].url} alt={media[current].alt} />
-	{:else}
-		<video controls autoplay loop muted>
-			<source src={media[current].url} type="video/mp4" />
-			Your browser does not support the video tag.
-		</video>
-	{/if}
-
-	<button on:click={previous}>&lt;</button>
-	<button on:click={next}>&gt;</button>
-
-	<!-- {#each media as item, i}
-		<div class="slide">
+<div
+	class="carousel"
+	class:visible={modalVisible}
+	on:click={() => (modalVisible = false)}
+	on:keydown={(e) => {
+		if (e.key === 'Escape') {
+			modalVisible = false;
+		}
+	}}
+	role="button"
+	tabindex="0"
+>
+	{#each media as item, i}
+		<div class="slide" class:visible={i === current}>
 			{#if item.type === 'CarouselImage'}
 				<img src={item.url} alt={item.alt} />
 			{:else}
@@ -48,15 +49,45 @@
 				</video>
 			{/if}
 		</div>
-	{/each} -->
+	{/each}
+
+	<div class="controls">
+		<button class="previous nav" on:click|stopPropagation={previous}>&lt;</button>
+		<button
+			class:hidden={modalVisible}
+			class="view"
+			on:click|stopPropagation={() => (modalVisible = true)}>View</button
+		>
+		<button class="next nav" on:click|stopPropagation={next}>&gt;</button>
+	</div>
 </div>
 
 <style>
 	.carousel {
-		display: flex;
+		display: grid;
 		justify-content: center;
 		align-items: center;
-		overflow-x: hidden;
+		overflow: hidden;
+		background-color: rgb(5, 5, 5);
+	}
+
+	.carousel.visible {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+	}
+
+	.slide {
+		grid-column: 1;
+		grid-row: 1;
+		visibility: hidden;
+	}
+
+	.slide.visible {
+		visibility: visible;
 	}
 
 	img,
@@ -64,17 +95,41 @@
 		width: 100%;
 	}
 
-	.carousel {
-		overflow: hidden;
+	.controls {
+		grid-column: 1;
+		grid-row: 1;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.view {
+		flex-grow: 1;
+		color: transparent;
+	}
+
+	.view:hover {
+		cursor: pointer;
+		color: white;
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	.view.hidden {
+		display: none;
 	}
 
 	button {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		background: none;
+		height: 100%;
+		background-color: transparent;
 		border: none;
-		font-size: 2rem;
 		color: white;
+		font-size: 2rem;
+		transition: background-color 0.3s;
+
+		user-select: none;
+	}
+
+	.nav:hover {
+		background-color: rgba(0, 0, 0, 0.8);
 	}
 </style>
