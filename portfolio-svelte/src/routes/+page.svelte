@@ -4,19 +4,28 @@
 	import ContactMe from './ContactMe.svelte';
 	import FeaturedProjectShowcase from './FeaturedProjectShowcase.svelte';
 	import LandingSection from './LandingSection.svelte';
+	import Page from '$lib/components/Page.svelte';
+	import PageScroller from '$lib/components/PageScroller.svelte';
+	import Footer from './Footer.svelte';
 
 	export let data;
 </script>
 
-<LandingSection />
+<PageScroller>
+	<LandingSection />
 
-{#each data.props.articles.filter((a) => {
-	return a.meta.featured;
-}) as article}
-	<FeaturedProjectShowcase {article} />
-{/each}
+	{#each data.props.articles.filter((a) => {
+		return a.meta.featured;
+	}) as article}
+		<FeaturedProjectShowcase {article} />
+	{/each}
 
-<MoreProjects />
+	<MoreProjects />
 
-<AboutMe />
-<ContactMe />
+	<AboutMe />
+	<ContactMe />
+
+	<Page>
+		<Footer />
+	</Page>
+</PageScroller>

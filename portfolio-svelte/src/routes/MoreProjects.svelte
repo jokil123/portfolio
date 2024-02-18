@@ -1,14 +1,18 @@
 <script lang="ts">
 	import Page from '$lib/components/Page.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
+
+	export let data;
 </script>
 
 <Page>
 	<h1>More <b>Projects</b></h1>
-	<ReadMore href="/projects/fishermans_friend">
+	<!-- {#each data.props.articles as article}{/each} -->
+
+	<ReadMore href="/projects/fishermans-friend">
 		<img class="projectImage" src="/images/fishermans_friend_01.jpg" alt="Projects" />
 	</ReadMore>
-	<ReadMore href="/projects/fishermans_friend">
+	<ReadMore href="/projects/fishermans-friend">
 		<img class="projectImage" src="/images/fishermans_friend_01.jpg" alt="Projects" />
 	</ReadMore>
 

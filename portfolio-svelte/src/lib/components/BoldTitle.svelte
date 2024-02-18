@@ -5,9 +5,10 @@
 	import type { Article } from '$lib/cms';
 
 	export let title: String;
+	export let align: 'left' | 'right' | 'center' = 'center';
 </script>
 
-<h1>
+<h1 style="text-align: {align};">
 	{title.split('\n')[0]}
 	<br />
 	<b>{title.split('\n')[1]}</b>
@@ -16,7 +17,6 @@
 <style>
 	h1 {
 		font-weight: 300;
-		text-align: center;
 		font-size: 2em;
 		margin-top: 0;
 		margin-bottom: 0.5rem;

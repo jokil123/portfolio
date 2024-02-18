@@ -9,9 +9,4 @@
 
 <Header />
 
-<PageScroller>
-	<slot />
-	<Page>
-		<Footer />
-	</Page>
-</PageScroller>
+<slot />
