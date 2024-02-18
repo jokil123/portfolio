@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import NavItem from './NavItem.svelte';
+	import NavItem from './NavItemMobile.svelte';
 
 	let open = false;
 
@@ -15,7 +15,7 @@
 			<a href="/">J<b>L</b></a>
 		</div>
 		<img class="headerElement" src="/images/header_decoration.svg" alt="logo" />
-		<button class="headerElement" on:click={toggleMenu}>
+		<button class="headerElement burger" on:click={toggleMenu}>
 			{#if open}
 				<img class="burger" src="/images/header_nav_close.svg" alt="close menu" />
 			{:else}
@@ -42,11 +42,15 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		/* height: 100%; */
-		/* z-index: 1000; */
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
+	}
+
+	@media (min-width: 48rem) {
+		header {
+			display: none;
+		}
 	}
 
 	header.open {
@@ -61,7 +65,7 @@
 		background-color: #000000;
 	}
 
-	button {
+	button.burger {
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
