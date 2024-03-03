@@ -1,26 +1,39 @@
 <script lang="ts">
+	import ContentSize from '$lib/components/ContentSize.svelte';
 	import Page from '$lib/components/Page.svelte';
 
 	let breakpoint = 768;
 </script>
 
 <Page>
-	<h1>Joshua <b>Lung</b></h1>
-	<div class="subheading">
-		<span>Making Computers do Stuff</span>
-		<div class="line"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-	</div>
-	<!-- // the background video -->
-	<video autoplay muted>
-		<source src="/videos/final.webm" type="video/mp4" />
-	</video>
+	<ContentSize>
+		<div class="container">
+			<div class="text">
+				<h1>Joshua <b>Lung</b></h1>
+				<div class="subheading">
+					<span>Making Computers do Stuff</span>
+					<div class="line"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+			</div>
+
+			<video autoplay muted>
+				<source src="/videos/final.webm" type="video/mp4" />
+			</video>
+		</div>
+	</ContentSize>
 </Page>
 
 <style>
 	:root {
-		--line-thickness: 0.6rem;
+		--line-thickness: 0.6em;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	h1 {
@@ -35,12 +48,12 @@
 		font-size: 0.95em;
 		font-family: 'Abhaya Libre', sans-serif;
 		font-weight: 300;
-		margin-right: 0.7rem;
+		margin-right: 0.7em;
 	}
 
 	.line {
 		display: inline-block;
-		width: 5.25rem;
+		width: 5.25em;
 		height: var(--line-thickness);
 		background-color: #ffffff;
 	}
@@ -62,5 +75,39 @@
 		aspect-ratio: 1.25;
 		object-fit: cover;
 		margin-top: 5rem;
+		max-width: 600px;
+	}
+
+	@media (min-width: 768px) {
+		.container {
+			display: grid;
+			width: 100%;
+			font-size: 1.5em;
+		}
+
+		.text,
+		video {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		video {
+			justify-self: end;
+			z-index: -1;
+		}
+
+		.text {
+			justify-self: start;
+		}
+	}
+
+	@media (min-width: 1536px) {
+		.container {
+			font-size: 2em;
+		}
+
+		video {
+			max-width: 700px;
+		}
 	}
 </style>
