@@ -4,10 +4,10 @@
 	import windowSize from '$lib/windowSize';
 	import { px2rem } from '$lib/convert';
 
-	let breakpoint = 48; // in rem
+	let breakpoint = 768;
 </script>
 
-{#if px2rem($windowSize.width) < breakpoint}
+{#if $windowSize.width < breakpoint}
 	<HeaderMobile />
 {:else}
 	<HeaderDesktop />

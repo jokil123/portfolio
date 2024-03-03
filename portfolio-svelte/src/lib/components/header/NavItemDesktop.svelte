@@ -1,13 +1,20 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { typewriter } from '$lib/transition/typewriter';
+	import * as easing from 'svelte/easing';
+
 	export let href = '';
 	export let text = '';
+	export let width: number; // the width of the text in rem
 	export let collapsed = false;
 </script>
 
 <a {href}>
 	<div class="navItem" class:collapsed>
-		<div class="navText" class:collapsed></div>
-		<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
+		<div class="navText" style="width: {collapsed ? 0 : width}rem;">
+			{text}
+		</div>
+		<img class="plus" class:collapsed src="/images/decoration_plus.svg" alt="decoration" />
 	</div>
 </a>
 
@@ -15,34 +22,30 @@
 	.navText {
 		overflow: hidden;
 		white-space: nowrap;
-		transition: 0.5s;
-		max-width: 100%;
+		transition: width var(--duration);
 		margin: 0;
-
-		width: 15rem;
-		height: 1.5rem;
-		background-color: #ffffff;
-	}
-
-	.navText.collapsed {
-		max-width: 0;
 	}
 
 	.navItem {
 		font-size: 1rem;
 		display: flex;
 		align-items: center;
-		transition: margin 0.5s;
-		transition: width 0.5s;
+		transition: margin var(--duration);
 		margin: 1.5rem 2.5rem;
 	}
 
-	/* .navItem.collapsed {
-		margin: 1.5rem 0.5rem;
-	} */
+	.navItem.collapsed {
+		margin: 1.5rem 2rem;
+	}
 
 	.plus {
 		margin: 0.5rem;
+		transition: transform var(--duration);
+		transform: rotate(90deg);
+	}
+
+	.plus.collapsed {
+		transform: rotate(0deg);
 	}
 
 	a {

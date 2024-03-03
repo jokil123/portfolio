@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Page from '$lib/components/Page.svelte';
+
+	let breakpoint = 768;
 </script>
 
 <Page>

@@ -1,3 +1,7 @@
+:root {
+	--duration: 0.25s;
+}
+
 body {
 	background-color: black;
 	color: white;

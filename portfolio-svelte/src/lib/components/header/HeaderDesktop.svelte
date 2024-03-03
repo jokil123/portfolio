@@ -12,15 +12,15 @@
 	}
 </script>
 
-<header on:mouseenter={enter} on:mouseleave={leave}>
+<header on:mouseenter={enter} on:mouseleave={leave} class:expanded>
 	<nav class="headerTop">
 		<div class="headerElement logo">
 			<a href="/">J<b>L</b></a>
 		</div>
 		<!-- <NavItemDesktop href="/" text="Home" /> -->
-		<NavItemDesktop href="/about" text="About Me" collapsed={!expanded} />
-		<NavItemDesktop href="/projects" text="Projects" collapsed={!expanded} />
-		<NavItemDesktop href="/contact" text="Contact" collapsed={!expanded} />
+		<NavItemDesktop href="/about" text="About Me" collapsed={!expanded} width={5} />
+		<NavItemDesktop href="/projects" text="Projects" collapsed={!expanded} width={4} />
+		<NavItemDesktop href="/contact" text="Contact" collapsed={!expanded} width={4} />
 
 		<div class="spacer"></div>
 		<img
@@ -39,13 +39,13 @@
 		top: 0;
 		left: 0;
 		width: 100%;
+		height: 4rem;
+		transition: height var(--duration);
 		display: flex;
-		flex-direction: column;
-		justify-content: left;
 	}
 
-	header.open {
-		height: 100%;
+	header.expanded {
+		height: 6rem;
 	}
 
 	.headerTop {
@@ -68,16 +68,6 @@
 		text-decoration: none;
 		color: #ffffff;
 		font-weight: 300;
-	}
-
-	.navItem {
-		font-size: 1rem;
-		display: flex;
-		align-items: center;
-	}
-
-	.plus {
-		margin: 0.5rem;
 	}
 
 	.line {
