@@ -1,12 +1,12 @@
 <script lang="ts">
-	import ContentSize from '$lib/components/ContentSize.svelte';
+	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
 
 	let breakpoint = 768;
 </script>
 
 <Page>
-	<ContentSize>
+	<ContentWidth>
 		<div class="container">
 			<div class="text">
 				<h1>Joshua <b>Lung</b></h1>
@@ -22,7 +22,7 @@
 				<source src="/videos/final.webm" type="video/mp4" />
 			</video>
 		</div>
-	</ContentSize>
+	</ContentWidth>
 </Page>
 
 <style>
@@ -83,6 +83,7 @@
 			display: grid;
 			width: 100%;
 			font-size: 1.5em;
+			height: 100vh;
 		}
 
 		.text,

@@ -1,15 +1,26 @@
 <script lang="ts">
-	import ContentSize from '$lib/components/ContentSize.svelte';
+	import Scroller from '$lib/components/Scroller.svelte';
 </script>
 
-<ContentSize>
-	<div></div>
-</ContentSize>
+<div class="tall">
+	<div class="spacer"></div>
+	<Scroller speed={2}>
+		<p>Test</p>
+	</Scroller>
+	<p>Test</p>
+</div>
 
 <style>
-	div {
-		background-color: red;
+	.tall {
+		height: 500vh;
+	}
+
+	.spacer {
 		height: 100vh;
-		width: 100%;
+	}
+
+	p {
+		font-size: 5rem;
+		color: red;
 	}
 </style>

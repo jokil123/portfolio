@@ -12,4 +12,10 @@
 		width: 100%;
 		scroll-snap-align: start;
 	}
+
+	@media (min-width: 768px) {
+		section {
+			height: auto;
+		}
+	}
 </style>

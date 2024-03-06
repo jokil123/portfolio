@@ -42,6 +42,7 @@
 		height: 4rem;
 		transition: height var(--duration);
 		display: flex;
+		border-bottom: 1px solid #141414;
 	}
 
 	header.expanded {

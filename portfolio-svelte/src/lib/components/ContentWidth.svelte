@@ -6,13 +6,13 @@
 	div {
 		box-sizing: border-box;
 		display: block;
-		padding: 2rem;
+		padding: 0 2rem;
 		width: 100%;
 	}
 
 	@media (min-width: 768px) {
 		div {
-			padding: 4rem;
+			padding: 0 4rem;
 		}
 	}
 
