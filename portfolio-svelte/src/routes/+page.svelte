@@ -20,7 +20,7 @@
 		<FeaturedProjectShowcase {article} />
 	{/each}
 
-	<MoreProjects />
+	<MoreProjects articles={data.props.articles} />
 
 	<AboutMe />
 	<ContactMe />

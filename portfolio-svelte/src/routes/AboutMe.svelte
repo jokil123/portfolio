@@ -1,19 +1,16 @@
 <script lang="ts">
 	import Page from '$lib/components/Page.svelte';
+	import TextDecoration from '$lib/components/TextDecoration.svelte';
 </script>
 
 <Page>
 	<h1>About <b>Me</b></h1>
 	<img class="mugshot" src="/images/mugshot.jpg" alt="placeholder" />
 	<a href="/cv.pdf" download>
-		<div class="cvLink">
-			<div class="line"></div>
-			<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
+		<TextDecoration plus line>
 			CV
 			<img class="linkIcon" src="/images/link_icon.svg" alt="decoration" />
-			<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
-			<div class="line"></div>
-		</div>
+		</TextDecoration>
 	</a>
 	<p>
 		Hello! My name is Joshua Lung and I'm a Student from Austria at HTL Dornbirn, with experience in

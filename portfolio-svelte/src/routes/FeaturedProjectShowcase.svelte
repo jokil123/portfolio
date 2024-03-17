@@ -5,9 +5,11 @@
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import type { Article } from '$lib/cms';
-	import windowSize from '$lib/windowSize';
+	import windowSize from '$lib/stores/windowSize';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Scroller from '$lib/components/Scroller.svelte';
+	import { cubicIn, linear } from 'svelte/easing';
+	import { goofyEase } from '$lib/goofyEase';
 
 	export let article: Article;
 </script>
@@ -22,7 +24,9 @@
 					{/each}
 				</div>
 				{#if $windowSize.width > 768}
+					<!-- <a href={`/projects/${article.id}`}> -->
 					<BoldTitle title={article.meta.title} align="left" />
+					<!-- </a> -->
 				{:else}
 					<BoldTitle title={article.meta.title} />
 				{/if}
@@ -31,7 +35,7 @@
 			</div>
 			<div class="projectImage">
 				{#if $windowSize.width > 768}
-					<Scroller speed={2}>
+					<Scroller speed={0.75}>
 						<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
 					</Scroller>
 				{:else}
@@ -66,7 +70,13 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 2rem;
+		background-color: rgb(0, 0, 0, 0.25);
+		box-shadow: 0 0 5rem 10rem rgba(0, 0, 0, 0.25);
 	}
+
+	/* a {
+		text-decoration: none;
+	} */
 
 	@media (min-width: 768px) {
 		.projectIcons {
@@ -77,7 +87,7 @@
 			display: grid;
 			width: 100%;
 			justify-content: unset;
-			margin: 10rem auto;
+			margin: 20rem auto;
 		}
 
 		.projectShowcase > * {
@@ -94,8 +104,10 @@
 		}
 
 		.projectImage {
-			width: 50%;
-			/* max-width: 600px; */
+			width: 75%;
+			max-width: 800px;
+			/* Add filter to image to make it visible better */
+			filter: brightness(0.75);
 			z-index: -1;
 		}
 

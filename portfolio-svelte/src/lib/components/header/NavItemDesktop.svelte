@@ -1,8 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import { typewriter } from '$lib/transition/typewriter';
-	import * as easing from 'svelte/easing';
-
 	export let href = '';
 	export let text = '';
 	export let width: number; // the width of the text in rem
