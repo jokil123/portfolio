@@ -7,4 +7,15 @@
 	footer {
 		text-align: center;
 	}
+
+	@media (min-width: 768px) {
+		footer {
+			display: flex;
+			justify-content: center;
+		}
+
+		footer > * {
+			margin: 1rem 2rem;
+		}
+	}
 </style>

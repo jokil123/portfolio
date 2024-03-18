@@ -33,6 +33,7 @@
 		height: 1px;
 		background-color: #ffffff;
 		opacity: 0.5;
+		z-index: -1;
 	}
 
 	.plus {

@@ -16,8 +16,8 @@
 
 	{#each data.props.articles.filter((a) => {
 		return a.meta.featured;
-	}) as article}
-		<FeaturedProjectShowcase {article} />
+	}) as article, i}
+		<FeaturedProjectShowcase {article} invert={i % 2 == 1} />
 	{/each}
 
 	<MoreProjects articles={data.props.articles} />

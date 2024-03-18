@@ -45,8 +45,10 @@
 		{/each}
 
 		<a href="/projects" class="allProjects">
-			All Projects
-			<img class="linkIcon" src="/images/link_icon.svg" alt="Link" />
+			<TextDecoration plus line>
+				All Projects
+				<img class="linkIcon" src="/images/link_icon.svg" alt="Link" />
+			</TextDecoration>
 		</a>
 	</div>
 </Page>
@@ -58,7 +60,8 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		margin-bottom: 15rem;
+		margin-bottom: 20rem;
+		box-shadow: 0 0 10rem 10rem rgb(0, 0, 0);
 	}
 
 	.projectImage {
@@ -67,14 +70,10 @@
 	}
 
 	.allProjects {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		font-weight: 700;
-		color: white;
 		text-decoration: none;
 		font-size: 2rem;
-		margin-top: 3rem;
+		width: 40rem;
 	}
 
 	.linkIcon {

@@ -34,6 +34,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		box-shadow: 0 0 10rem 15rem rgb(0, 0, 0);
 	}
 
 	h1 {

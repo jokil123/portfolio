@@ -8,15 +8,14 @@
 	import windowSize from '$lib/stores/windowSize';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Scroller from '$lib/components/Scroller.svelte';
-	import { cubicIn, linear } from 'svelte/easing';
-	import { goofyEase } from '$lib/goofyEase';
 
 	export let article: Article;
+	export let invert: boolean = true;
 </script>
 
 <Page>
 	<ContentWidth>
-		<div class="projectShowcase">
+		<div class="projectShowcase" class:invert>
 			<div class="projectInfo">
 				<div class="projectIcons">
 					{#each article.meta.tags as tag}
@@ -24,9 +23,7 @@
 					{/each}
 				</div>
 				{#if $windowSize.width > 768}
-					<!-- <a href={`/projects/${article.id}`}> -->
 					<BoldTitle title={article.meta.title} align="left" />
-					<!-- </a> -->
 				{:else}
 					<BoldTitle title={article.meta.title} />
 				{/if}
@@ -48,7 +45,7 @@
 	</ContentWidth>
 </Page>
 
-<style>
+<style lang="scss">
 	.projectShowcase {
 		display: flex;
 		flex-direction: column;
@@ -115,6 +112,16 @@
 			font-size: 1.5rem;
 			width: 600px;
 			align-items: flex-start;
+		}
+
+		.invert {
+			&.projectShowcase > *:first-child {
+				justify-self: end;
+			}
+
+			&.projectShowcase > *:last-child {
+				justify-self: start;
+			}
 		}
 	}
 
