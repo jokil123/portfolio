@@ -18,7 +18,7 @@
 	.navText {
 		overflow: hidden;
 		white-space: nowrap;
-		transition: width var(--duration);
+		transition: width var(--header-duration);
 		margin: 0;
 	}
 
@@ -26,7 +26,7 @@
 		font-size: 1rem;
 		display: flex;
 		align-items: center;
-		transition: margin var(--duration);
+		transition: margin var(--header-duration);
 		margin: 1.5rem 2.5rem;
 	}
 
@@ -36,7 +36,7 @@
 
 	.plus {
 		margin: 0.5rem;
-		transition: transform var(--duration);
+		transition: transform var(--header-duration);
 		transform: rotate(90deg);
 	}
 

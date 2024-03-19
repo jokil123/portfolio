@@ -27,6 +27,8 @@
 	}
 
 	.corner {
+		z-index: -1;
+
 		&.top.left {
 			grid-column: 1 / 2;
 			grid-row: 1 / 2;

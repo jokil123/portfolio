@@ -1,26 +1,25 @@
 <script>
 	import NavItemDesktop from './NavItemDesktop.svelte';
-
-	let expanded = false;
+	import { headerExpanded } from '$lib/stores/headerExpanded';
 
 	function enter() {
-		expanded = true;
+		headerExpanded.set(true);
 	}
 
 	function leave() {
-		expanded = false;
+		headerExpanded.set(false);
 	}
 </script>
 
-<header on:mouseenter={enter} on:mouseleave={leave} class:expanded>
+<header on:mouseenter={enter} on:mouseleave={leave} class:expanded={$headerExpanded}>
 	<nav class="headerTop">
 		<div class="headerElement logo">
 			<a href="/">J<b>L</b></a>
 		</div>
 		<!-- <NavItemDesktop href="/" text="Home" /> -->
-		<NavItemDesktop href="/about" text="About Me" collapsed={!expanded} width={5} />
-		<NavItemDesktop href="/projects" text="Projects" collapsed={!expanded} width={4} />
-		<NavItemDesktop href="/contact" text="Contact" collapsed={!expanded} width={4} />
+		<NavItemDesktop href="/about" text="About Me" collapsed={!$headerExpanded} width={5} />
+		<NavItemDesktop href="/projects" text="Projects" collapsed={!$headerExpanded} width={4} />
+		<NavItemDesktop href="/contact" text="Contact" collapsed={!$headerExpanded} width={4} />
 
 		<div class="spacer"></div>
 		<img
@@ -40,7 +39,7 @@
 		left: 0;
 		width: 100%;
 		height: 4rem;
-		transition: height var(--duration);
+		transition: height var(--header-duration);
 		display: flex;
 		border-bottom: 1px solid #141414;
 	}

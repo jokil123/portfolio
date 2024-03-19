@@ -19,6 +19,12 @@
 		overflow-y: scroll;
 		overscroll-behavior-y: contain;
 		height: 100vh;
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	div::-webkit-scrollbar {
+		display: none; /* Safari and Chrome */
 	}
 
 	@media (min-width: 768px) {
