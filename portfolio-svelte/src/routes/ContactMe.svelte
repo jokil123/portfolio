@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
+	import Frame from '$lib/components/Frame.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
 
@@ -14,7 +15,9 @@
 <Page>
 	<ContentWidth>
 		<div class="contactMe">
-			<h1 class="title">Contact <b>Me</b></h1>
+			<Frame>
+				<h1 class="title">Contact <b>Me</b></h1>
+			</Frame>
 			<ul class="links">
 				{#each items as item}
 					<li class="linkItem">
@@ -37,7 +40,7 @@
 	}
 
 	.title {
-		text-align: center;
+		margin: 0.5rem 1rem;
 	}
 
 	.linkIcon {
@@ -74,7 +77,8 @@
 			justify-content: space-around;
 			align-items: center;
 			margin: 0 0rem;
-			margin-bottom: 15rem;
+			/* margin-bottom: 15rem; */
+			height: 100vh;
 		}
 
 		.linkItem {

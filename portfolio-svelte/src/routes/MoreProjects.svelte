@@ -5,6 +5,7 @@
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
+	import Frame from '$lib/components/Frame.svelte';
 	import windowSize from '$lib/stores/windowSize';
 
 	export let articles: Article[];
@@ -12,7 +13,9 @@
 
 <Page>
 	<div class="moreProjects">
-		<h1>More <b>Projects</b></h1>
+		<Frame>
+			<h1 class="title">More <b>Projects</b></h1>
+		</Frame>
 		{#each articles as article, i}
 			{#if i > 0}
 				<hr />
@@ -54,12 +57,18 @@
 </Page>
 
 <style lang="scss">
+	.title {
+		font-size: 3rem;
+		margin: 0.75rem 1rem;
+	}
+
 	.moreProjects {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		width: 100%;
+		margin-top: 5rem;
 		margin-bottom: 20rem;
 		box-shadow: 0 0 10rem 10rem rgb(0, 0, 0);
 	}
