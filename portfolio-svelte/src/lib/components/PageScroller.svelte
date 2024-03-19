@@ -1,4 +1,14 @@
-<div>
+<script lang="ts">
+	import { scrollPosition } from '$lib/stores/scrollPosition';
+
+	const handleScroll = (e: Event) => {
+		const target = e.target as HTMLElement;
+		const scroll = target.scrollTop;
+		scrollPosition.set(scroll);
+	};
+</script>
+
+<div on:scroll={handleScroll}>
 	<slot />
 </div>
 

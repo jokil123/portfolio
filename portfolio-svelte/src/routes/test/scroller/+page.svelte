@@ -1,14 +1,17 @@
 <script lang="ts">
+	import PageScroller from '$lib/components/PageScroller.svelte';
 	import Scroller from '$lib/components/Scroller.svelte';
 </script>
 
-<div class="tall">
-	<div class="spacer"></div>
-	<Scroller speed={2}>
+<PageScroller>
+	<div class="tall">
+		<div class="spacer"></div>
+		<Scroller speed={2}>
+			<p>Test</p>
+		</Scroller>
 		<p>Test</p>
-	</Scroller>
-	<p>Test</p>
-</div>
+	</div>
+</PageScroller>
 
 <style>
 	.tall {

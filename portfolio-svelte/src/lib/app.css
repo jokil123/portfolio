@@ -26,3 +26,7 @@ a {
 a:hover {
 	color: #00a2ff;
 }
+
+b {
+	font-weight: 700;
+}

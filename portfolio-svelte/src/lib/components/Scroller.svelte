@@ -1,18 +1,15 @@
 <script lang="ts">
+	// this component is used when you want elements to scroll with a different speed than the rest of the page
+
+	import { scrollPosition } from '$lib/stores/scrollPosition';
+
 	export let speed: number;
 
 	let scrollBox: Element;
 
-	let y = 0;
+	let oldScroll = 0;
 
-	function update() {
-		const box = scrollBox.getBoundingClientRect();
-		const center = box.top + box.height / 2 - y;
-
-		y = (center - window.innerHeight / 2) * (speed - 1);
-
-		// console.log(y);
-	}
+	scrollPosition.subscribe((value) => {});
 </script>
 
 <div style={`transform: translateY(${y}px)`} bind:this={scrollBox}>
@@ -20,5 +17,3 @@
 	<slot />
 </div>
 <!-- <p>{y}</p> -->
-
-<svelte:window on:scroll={() => console.log('abc')} on:resize={update} />

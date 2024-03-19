@@ -19,6 +19,6 @@
 		font-weight: 300;
 		font-size: 2em;
 		margin-top: 0;
-		margin-bottom: 0.5rem;
+		margin-bottom: 0;
 	}
 </style>

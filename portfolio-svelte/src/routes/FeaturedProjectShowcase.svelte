@@ -5,9 +5,10 @@
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import type { Article } from '$lib/cms';
-	import windowSize from '$lib/windowSize';
+	import windowSize from '$lib/stores/windowSize';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Scroller from '$lib/components/Scroller.svelte';
+	import Frame from '$lib/components/Frame.svelte';
 
 	export let article: Article;
 </script>
@@ -22,7 +23,9 @@
 					{/each}
 				</div>
 				{#if $windowSize.width > 768}
-					<BoldTitle title={article.meta.title} align="left" />
+					<Frame shift={true}>
+						<BoldTitle title={article.meta.title} align="left" />
+					</Frame>
 				{:else}
 					<BoldTitle title={article.meta.title} />
 				{/if}
