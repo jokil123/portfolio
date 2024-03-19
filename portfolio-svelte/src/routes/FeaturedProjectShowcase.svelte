@@ -11,11 +11,12 @@
 	import Frame from '$lib/components/Frame.svelte';
 
 	export let article: Article;
+	export let invert: boolean = true;
 </script>
 
 <Page>
 	<ContentWidth>
-		<div class="projectShowcase">
+		<div class="projectShowcase" class:invert>
 			<div class="projectInfo">
 				<div class="projectIcons">
 					{#each article.meta.tags as tag}
@@ -34,7 +35,7 @@
 			</div>
 			<div class="projectImage">
 				{#if $windowSize.width > 768}
-					<Scroller speed={2}>
+					<Scroller speed={0.75}>
 						<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
 					</Scroller>
 				{:else}
@@ -47,7 +48,7 @@
 	</ContentWidth>
 </Page>
 
-<style>
+<style lang="scss">
 	.projectShowcase {
 		display: flex;
 		flex-direction: column;
@@ -69,7 +70,13 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 2rem;
+		background-color: rgb(0, 0, 0, 0.25);
+		box-shadow: 0 0 5rem 10rem rgba(0, 0, 0, 0.25);
 	}
+
+	/* a {
+		text-decoration: none;
+	} */
 
 	@media (min-width: 768px) {
 		.projectIcons {
@@ -80,7 +87,7 @@
 			display: grid;
 			width: 100%;
 			justify-content: unset;
-			margin: 10rem auto;
+			margin: 20rem auto;
 		}
 
 		.projectShowcase > * {
@@ -97,8 +104,10 @@
 		}
 
 		.projectImage {
-			width: 50%;
-			/* max-width: 600px; */
+			width: 75%;
+			max-width: 800px;
+			/* Add filter to image to make it visible better */
+			filter: brightness(0.75);
 			z-index: -1;
 		}
 
@@ -106,6 +115,16 @@
 			font-size: 1.5rem;
 			width: 600px;
 			align-items: flex-start;
+		}
+
+		.invert {
+			&.projectShowcase > *:first-child {
+				justify-self: end;
+			}
+
+			&.projectShowcase > *:last-child {
+				justify-self: start;
+			}
 		}
 	}
 

@@ -1,26 +1,85 @@
 <script lang="ts">
+	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
-	import ContactMeItem from './ContactMeItem.svelte';
+	import TextDecoration from '$lib/components/TextDecoration.svelte';
+
+	let items = [
+		{ text: 'Email', href: 'mailto://joshua.lung@outlook.at' },
+		{ text: 'LinkedIn', href: 'https://www.linkedin.com/in/joshua-lung-0b3b3b1b3/' },
+		{ text: 'GitHub', href: 'https://github.com' },
+		{ text: 'Artstation', href: 'https://artstation.com' }
+	];
 </script>
 
 <Page>
-	<section>
-		<h1>Contact <b>Me</b></h1>
-		<ul>
-			<ContactMeItem text="Email" href="mailto://jo_kil@outlook.com" />
-			<ContactMeItem text="LinkedIn" href="https://linkedin.com" />
-			<ContactMeItem text="GitHub" href="https://github.com" />
-			<ContactMeItem text="Artstation" href="https://artstation.com" />
-		</ul>
-	</section>
+	<ContentWidth>
+		<div class="contactMe">
+			<h1 class="title">Contact <b>Me</b></h1>
+			<ul class="links">
+				{#each items as item}
+					<li class="linkItem">
+						<a href={item.href}>
+							<TextDecoration plus>
+								{item.text}
+								<img class="linkIcon" src="/images/link_icon.svg" alt="icon" />
+							</TextDecoration>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</ContentWidth>
 </Page>
 
 <style>
-	ul {
+	.links {
 		padding-left: 0;
 	}
 
-	h1 {
+	.title {
 		text-align: center;
+	}
+
+	.linkIcon {
+		width: 1.25rem;
+		margin-left: 0.5rem;
+	}
+
+	.linkItem {
+		margin: 0.3rem;
+		display: flex;
+		justify-content: center;
+		font-size: 2rem;
+		font-weight: bold;
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	a {
+		text-decoration: none;
+		color: #ffffff;
+	}
+
+	@media (min-width: 768px) {
+		.title {
+			font-size: 3.75rem;
+			text-align: left;
+		}
+
+		.contactMe {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			margin: 0 0rem;
+			margin-bottom: 15rem;
+		}
+
+		.linkItem {
+			justify-content: flex-start;
+			font-size: 2.25rem;
+		}
 	}
 </style>

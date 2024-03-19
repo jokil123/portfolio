@@ -1,14 +1,15 @@
+<!-- the page scroller is the main scrollable container for the page, update scrollPosition store on scroll -->
 <script lang="ts">
 	import { scrollPosition } from '$lib/stores/scrollPosition';
 
-	const handleScroll = (e: Event) => {
-		const target = e.target as HTMLElement;
-		const scroll = target.scrollTop;
-		scrollPosition.set(scroll);
+	let div: HTMLElement;
+
+	const updateScroll = (e: UIEvent) => {
+		scrollPosition.set({ x: div.scrollTop, y: 0 });
 	};
 </script>
 
-<div on:scroll={handleScroll}>
+<div on:scroll={updateScroll} bind:this={div}>
 	<slot />
 </div>
 

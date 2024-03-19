@@ -3,7 +3,7 @@
 	import HeaderDesktop from './HeaderDesktop.svelte';
 	import windowSize from '$lib/stores/windowSize';
 
-	let breakpoint = 768;
+	let breakpoint = 768; // px
 </script>
 
 {#if $windowSize.width < breakpoint}
