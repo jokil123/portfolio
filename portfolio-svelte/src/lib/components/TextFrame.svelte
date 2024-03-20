@@ -22,21 +22,19 @@
 	}
 
 	.content {
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
+		grid-column: 2;
+		grid-row: 2;
 	}
 
 	.corner {
-		z-index: -1;
-
 		&.top.left {
-			grid-column: 1 / 2;
-			grid-row: 1 / 2;
+			grid-column: 1;
+			grid-row: 1;
 		}
 
 		&.bottom.right {
-			grid-column: 3 / 4;
-			grid-row: 3 / 4;
+			grid-column: 3;
+			grid-row: 3;
 			transform: rotate(180deg);
 			align-self: end;
 			justify-self: end;

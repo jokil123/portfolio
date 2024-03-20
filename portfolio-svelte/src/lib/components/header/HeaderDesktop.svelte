@@ -1,14 +1,22 @@
 <script>
 	import NavItemDesktop from './NavItemDesktop.svelte';
 	import { headerExpanded } from '$lib/stores/headerExpanded';
+	import { scrollPosition } from '$lib/stores/scrollPosition';
 
+	let scrollCollapse = false;
+	$: scrollCollapse = $scrollPosition.y < 100;
+
+	let enterCollapse = false;
 	function enter() {
-		headerExpanded.set(true);
+		enterCollapse = true;
 	}
 
 	function leave() {
-		headerExpanded.set(false);
+		enterCollapse = false;
 	}
+
+	$: headerExpanded.set(scrollCollapse || enterCollapse);
+	$: console.log($headerExpanded);
 </script>
 
 <header on:mouseenter={enter} on:mouseleave={leave} class:expanded={$headerExpanded}>
@@ -42,6 +50,7 @@
 		transition: height var(--header-duration);
 		display: flex;
 		border-bottom: 1px solid #141414;
+		z-index: 100;
 	}
 
 	header.expanded {

@@ -5,7 +5,7 @@
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
-	import Frame from '$lib/components/Frame.svelte';
+	import TextFrame from '$lib/components/TextFrame.svelte';
 	import windowSize from '$lib/stores/windowSize';
 
 	export let articles: Article[];
@@ -13,9 +13,9 @@
 
 <Page>
 	<div class="moreProjects">
-		<Frame>
+		<TextFrame>
 			<h1 class="title">More <b>Projects</b></h1>
-		</Frame>
+		</TextFrame>
 		{#each articles as article, i}
 			{#if i > 0}
 				<hr />

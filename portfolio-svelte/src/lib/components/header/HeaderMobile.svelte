@@ -45,6 +45,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
+		z-index: 100;
 	}
 
 	@media (min-width: 48rem) {

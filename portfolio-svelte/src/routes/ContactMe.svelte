@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
-	import Frame from '$lib/components/Frame.svelte';
+	import TextFrame from '$lib/components/TextFrame.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
 
@@ -15,13 +15,13 @@
 <Page>
 	<ContentWidth>
 		<div class="contactMe">
-			<Frame>
+			<TextFrame>
 				<h1 class="title">Contact <b>Me</b></h1>
-			</Frame>
+			</TextFrame>
 			<ul class="links">
 				{#each items as item}
 					<li class="linkItem">
-						<a href={item.href}>
+						<a href={item.href} target="_blank" rel="noopener noreferrer">
 							<TextDecoration plus>
 								{item.text}
 								<img class="linkIcon" src="/images/link_icon.svg" alt="icon" />

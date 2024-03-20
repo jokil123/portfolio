@@ -2,16 +2,16 @@
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
-	import Frame from '$lib/components/Frame.svelte';
+	import TextFrame from '$lib/components/TextFrame.svelte';
 </script>
 
 <Page>
 	<ContentWidth>
 		<div class="aboutMe">
 			<div class="verticalTitle">
-				<Frame>
+				<TextFrame>
 					<h1 class="title">About <b>Me</b></h1>
-				</Frame>
+				</TextFrame>
 				<img class="mugshot" src="/images/mugshot.jpg" alt="placeholder" />
 			</div>
 			<div class="verticalDesc">

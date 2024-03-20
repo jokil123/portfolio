@@ -8,7 +8,7 @@
 	import windowSize from '$lib/stores/windowSize';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Scroller from '$lib/components/Scroller.svelte';
-	import Frame from '$lib/components/Frame.svelte';
+	import TextFrame from '$lib/components/TextFrame.svelte';
 
 	export let article: Article;
 	export let invert: boolean = true;
@@ -24,9 +24,9 @@
 					{/each}
 				</div>
 				{#if $windowSize.width > 768}
-					<Frame shift={true}>
+					<TextFrame shift>
 						<BoldTitle title={article.meta.title} align="left" />
-					</Frame>
+					</TextFrame>
 				{:else}
 					<BoldTitle title={article.meta.title} />
 				{/if}

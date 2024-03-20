@@ -1,11 +1,11 @@
 <script>
 	import BoldTitle from '$lib/components/BoldTitle.svelte';
 	import HeaderSpacer from '$lib/components/HeaderSpacer.svelte';
-	import Frame from '$lib/components/Frame.svelte';
+	import TextFrame from '$lib/components/TextFrame.svelte';
 </script>
 
 <HeaderSpacer />
 
-<Frame>
+<TextFrame>
 	<BoldTitle title={`Test\nabc`} />
-</Frame>
+</TextFrame>

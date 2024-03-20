@@ -5,7 +5,7 @@
 	let div: HTMLElement;
 
 	const updateScroll = (e: UIEvent) => {
-		scrollPosition.set({ x: div.scrollTop, y: 0 });
+		scrollPosition.set({ x: 0, y: div.scrollTop });
 	};
 </script>
 
