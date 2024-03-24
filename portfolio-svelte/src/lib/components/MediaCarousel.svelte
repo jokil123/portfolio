@@ -110,8 +110,8 @@
 
 	.view:hover {
 		cursor: pointer;
-		color: white;
-		background-color: rgba(0, 0, 0, 0.8);
+		color: var(--text-color);
+		background-color: rgba(var(--background-color), 0.8);
 	}
 
 	.view.hidden {
@@ -122,7 +122,7 @@
 		height: 100%;
 		background-color: transparent;
 		border: none;
-		color: white;
+		color: var(--text-color);
 		font-size: 2rem;
 		transition: background-color 0.3s;
 
@@ -130,6 +130,6 @@
 	}
 
 	.nav:hover {
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: rgba(var(--background-color), 0.8);
 	}
 </style>

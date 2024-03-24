@@ -31,7 +31,7 @@
 	.line {
 		flex-grow: 1;
 		height: 1px;
-		background-color: #ffffff;
+		background-color: var(--text-color);
 		opacity: 0.5;
 		z-index: -1;
 	}

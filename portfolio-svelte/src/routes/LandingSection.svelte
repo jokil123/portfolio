@@ -34,7 +34,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		box-shadow: 0 0 10rem 15rem rgb(0, 0, 0);
+		box-shadow: 0 0 10rem 15rem var(--background-color);
 	}
 
 	h1 {
@@ -56,7 +56,7 @@
 		display: inline-block;
 		width: 5.25em;
 		height: var(--line-thickness);
-		background-color: #ffffff;
+		background-color: var(--text-color);
 	}
 
 	.circle {
@@ -64,7 +64,7 @@
 		width: var(--line-thickness);
 		height: var(--line-thickness);
 		border-radius: 50%;
-		background-color: #ffffff;
+		background-color: var(--text-color);
 	}
 
 	.subheading {

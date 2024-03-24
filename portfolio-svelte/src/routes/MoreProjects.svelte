@@ -70,7 +70,7 @@
 		width: 100%;
 		margin-top: 5rem;
 		margin-bottom: 20rem;
-		box-shadow: 0 0 10rem 10rem rgb(0, 0, 0);
+		box-shadow: 0 0 10rem 10rem var(--background-color);
 	}
 
 	.projectImage {
@@ -127,7 +127,7 @@
 
 	.readMore {
 		text-decoration: none;
-		color: white;
+		color: var(--text-color);
 		font-size: 1.1rem;
 	}
 

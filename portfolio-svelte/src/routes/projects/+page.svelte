@@ -41,6 +41,6 @@
 	}
 
 	a {
-		color: #ffffff;
+		color: var(--text-color);
 	}
 </style>

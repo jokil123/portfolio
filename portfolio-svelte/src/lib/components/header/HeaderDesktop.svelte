@@ -62,7 +62,7 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		background-color: #000000;
+		background-color: var(--background-color);
 	}
 
 	.headerElement {
@@ -75,14 +75,14 @@
 
 	a {
 		text-decoration: none;
-		color: #ffffff;
+		color: var(--text-color);
 		font-weight: 300;
 	}
 
 	.line {
 		width: 6rem;
 		height: 1.5rem;
-		background-color: white;
+		background-color: var(--text-color);
 	}
 
 	.spacer {

@@ -47,7 +47,7 @@
 
 	.download {
 		text-decoration: none;
-		color: #ffffff;
+		color: var(--text-color);
 		font-size: 2.5em;
 		font-weight: bold;
 		width: 100%;

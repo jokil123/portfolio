@@ -44,12 +44,12 @@
 		text-align: center;
 		margin-top: 1rem;
 		margin-bottom: 2rem;
-		color: #fff;
+		color: var(--text-color);
 		font-size: 1.25rem;
 	}
 
 	a.back {
-		color: #fff;
+		color: var(--text-color);
 		/* text-decoration: none; */
 	}
 </style>

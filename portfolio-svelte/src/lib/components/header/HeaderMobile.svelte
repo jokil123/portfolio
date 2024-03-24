@@ -63,7 +63,7 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		background-color: #000000;
+		background-color: var(--background-color);
 	}
 
 	button.burger {
@@ -79,7 +79,7 @@
 
 	a {
 		text-decoration: none;
-		color: #ffffff;
+		color: var(--text-color);
 		font-size: 2em;
 		font-weight: 300;
 	}
@@ -89,7 +89,7 @@
 	}
 
 	nav {
-		background-color: #000000;
+		background-color: var(--background-color);
 		flex-grow: 1;
 	}
 
