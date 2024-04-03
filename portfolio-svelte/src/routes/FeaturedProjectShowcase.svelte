@@ -56,6 +56,10 @@
 		justify-content: center;
 	}
 
+	.projectImage {
+		width: 100%;
+	}
+
 	.projectPreview {
 		width: 100%;
 	}

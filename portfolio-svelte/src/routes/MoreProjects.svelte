@@ -1,139 +1,82 @@
 <script lang="ts">
 	import type { Article } from '$lib/cms';
 	import BoldTitle from '$lib/components/BoldTitle.svelte';
+	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
 	import windowSize from '$lib/stores/windowSize';
+	import Overlay from '$lib/components/Overlay.svelte';
 
 	export let articles: Article[];
+
+	// repeats or shortens the array to a given length
+	function makeShitUp(o: Article[], n: number): Article[] {
+		const a = [];
+		for (let i = 0; i < n; i++) {
+			a.push(o[i % o.length]);
+		}
+		return a;
+	}
+
+	const articleLimit = 3;
 </script>
 
 <Page>
-	<div class="moreProjects">
-		<TextFrame>
-			<h1 class="title">More <b>Projects</b></h1>
-		</TextFrame>
-		{#each articles as article, i}
-			{#if i > 0}
-				<hr />
-			{/if}
-
-			<div class="project">
-				<ReadMore href={`/projects/${article.id}`}>
-					<img class="projectImage" src={`${article.coverImage.url}`} alt={article.meta.title} />
-				</ReadMore>
-				{#if $windowSize.width > 768}
-					<div class="projectInfo" class:flipped={i % 2 == 0}>
-						<BoldTitle title={article.meta.title} align="left" />
-						<p>{article.description}</p>
-						<div class="lowerSplit">
-							<div class="projectIcons">
-								{#each article.meta.tags as tag}
-									<ProjectIcon name={tag} />
-								{/each}
-							</div>
-							<a href={`/projects/${article.id}`} class="readMore">
-								<TextDecoration
-									>Read More
-									<img class="linkIcon small" src="/images/link_icon.svg" alt="Link" />
-								</TextDecoration>
-							</a>
-						</div>
-					</div>
-				{/if}
-			</div>
-		{/each}
-
-		<a href="/projects" class="allProjects">
-			<TextDecoration plus line>
-				All Projects
-				<img class="linkIcon" src="/images/link_icon.svg" alt="Link" />
-			</TextDecoration>
-		</a>
-	</div>
+	<ContentWidth>
+		<div class="moreProjects">
+			<TextFrame>
+				<h1 class="title">More <b>Projects</b></h1>
+			</TextFrame>
+			<Overlay>
+				<div class="fadeout" slot="overlay"></div>
+				<div class="projectsGrid">
+					{#each makeShitUp(articles, 100) as article}
+						<img class="projectImage" src={article.coverImage.url} alt={article.coverImage.alt} />
+					{/each}
+				</div>
+			</Overlay>
+		</div>
+	</ContentWidth>
 </Page>
 
 <style lang="scss">
-	.title {
-		font-size: 3rem;
-		margin: 0.75rem 1rem;
-	}
-
 	.moreProjects {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
-		margin-top: 5rem;
-		margin-bottom: 20rem;
-		box-shadow: 0 0 10rem 10rem var(--background-color);
+	}
+
+	.title {
+		margin-bottom: 2rem;
+		margin: 0.5rem 1rem;
+	}
+
+	// a 2xn grid of projects
+	.projectsGrid {
+		margin-top: 2rem;
+		overflow: hidden;
+		height: 28rem;
+
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(calc(100px + 20%), 1fr));
+		grid-gap: 1rem;
+		justify-content: center;
 	}
 
 	.projectImage {
-		width: 19rem;
-		margin-bottom: 1rem;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
-	.allProjects {
-		font-weight: 700;
-		text-decoration: none;
-		font-size: 2rem;
-		width: 40rem;
-	}
-
-	.linkIcon {
-		width: 1.5rem;
-		margin-left: 0.5rem;
-
-		&.small {
-			width: 1rem;
-			margin-left: 0.3rem;
-		}
-	}
-
-	.projectInfo {
-		flex-grow: 1;
-		margin: 0 1.5rem;
-
-		&.flipped {
-			order: -1;
-		}
-	}
-
-	.project {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		margin: 3rem 0rem;
-		width: 50rem;
-	}
-
-	hr {
-		width: 40rem;
-		border-color: rgba(0, 0, 0, 0.274);
-	}
-
-	.lowerSplit {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		margin-right: 5rem;
-	}
-
-	.readMore {
-		text-decoration: none;
-		color: var(--text-color);
-		font-size: 1.1rem;
-	}
-
-	@media (min-width: 768px) {
-		.projectImage {
-			margin: 0 1.5rem;
-		}
+	.fadeout {
+		width: 100%;
+		height: 10rem;
+		align-self: flex-end;
+		background: linear-gradient(transparent, rgb(0, 0, 0));
 	}
 </style>
