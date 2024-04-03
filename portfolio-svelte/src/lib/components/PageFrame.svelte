@@ -66,7 +66,7 @@
 
 	@media (max-width: 768px) {
 		.grid {
-			padding-top: 4.5rem;
+			padding-top: 5rem;
 		}
 
 		.corner {

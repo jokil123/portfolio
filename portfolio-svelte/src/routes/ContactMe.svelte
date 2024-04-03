@@ -35,6 +35,12 @@
 </Page>
 
 <style>
+	.contactMe {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
 	.links {
 		padding-left: 0;
 	}
@@ -72,10 +78,8 @@
 		}
 
 		.contactMe {
-			display: flex;
-			flex-direction: row;
 			justify-content: space-around;
-			align-items: center;
+			flex-direction: row;
 			margin: 0 0rem;
 			/* margin-bottom: 15rem; */
 			height: 100vh;

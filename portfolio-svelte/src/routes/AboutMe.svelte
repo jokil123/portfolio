@@ -35,12 +35,16 @@
 <style>
 	.title {
 		text-align: center;
-		font-size: 3.5rem;
-		margin: 0.75rem 1rem;
+		font-size: 2.5rem;
+		margin: 0.5rem 1rem;
 	}
 
 	.mugshot {
+		box-sizing: border-box;
+		margin-top: 1.5rem;
 		margin-bottom: 1.25rem;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
 		width: 100%;
 		max-width: 25rem;
 	}
@@ -62,8 +66,6 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		width: 19rem;
-		/* margin-bottom: 20rem; */
 	}
 
 	.verticalDesc {
