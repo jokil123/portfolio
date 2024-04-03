@@ -16,7 +16,6 @@
 	}
 
 	$: headerExpanded.set(scrollCollapse || enterCollapse);
-	$: console.log($headerExpanded);
 </script>
 
 <header on:mouseenter={enter} on:mouseleave={leave} class:expanded={$headerExpanded}>
