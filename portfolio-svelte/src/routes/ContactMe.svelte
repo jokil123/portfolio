@@ -62,7 +62,7 @@
 
 	a {
 		text-decoration: none;
-		color: #ffffff;
+		color: var(--text-color);
 	}
 
 	@media (min-width: 768px) {

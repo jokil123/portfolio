@@ -70,8 +70,8 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 2rem;
-		background-color: rgb(0, 0, 0, 0.25);
-		box-shadow: 0 0 5rem 10rem rgba(0, 0, 0, 0.25);
+		background-color: rgb(var(--background-color), 0.25);
+		box-shadow: 0 0 5rem 10rem rgba(var(--background-color), 0.25);
 	}
 
 	/* a {

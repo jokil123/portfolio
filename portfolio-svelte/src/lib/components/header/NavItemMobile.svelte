@@ -20,7 +20,7 @@
 
 	a {
 		text-decoration: none;
-		color: #ffffff;
+		color: var(--text-color);
 		font-size: 2em;
 		font-weight: 300;
 	}
@@ -32,7 +32,7 @@
 	.line {
 		display: inline-block;
 		height: 2px;
-		background-color: #ffffff;
+		background-color: var(--text-color);
 		opacity: 0.25;
 		flex-grow: 1;
 	}
