@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let plus = false;
 	export let line = false;
 </script>
@@ -8,13 +10,13 @@
 		<div class="line"></div>
 	{/if}
 	{#if plus}
-		<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
+		<img class="plus" src={`${base}/images/decoration_plus.svg`} alt="decoration" />
 	{/if}
 
 	<slot />
 
 	{#if plus}
-		<img class="plus" src="/images/decoration_plus.svg" alt="decoration" />
+		<img class="plus" src={`${base}/images/decoration_plus.svg`} alt="decoration" />
 	{/if}
 	{#if line}
 		<div class="line"></div>

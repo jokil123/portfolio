@@ -3,6 +3,7 @@
 	import TextFrame from '$lib/components/TextFrame.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
+	import { base } from '$app/paths';
 
 	let items = [
 		{ text: 'Email', href: 'mailto://joshua.lung@outlook.at' },
@@ -24,7 +25,7 @@
 						<a href={item.href} target="_blank" rel="noopener noreferrer">
 							<TextDecoration plus>
 								{item.text}
-								<img class="linkIcon" src="/images/link_icon.svg" alt="icon" />
+								<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="icon" />
 							</TextDecoration>
 						</a>
 					</li>

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import fs from 'fs';
+import { base } from '$app/paths';
 
 const ArticleMetaSchema = z.object({
 	title: z.string(),
@@ -13,7 +14,7 @@ const ArticleMetaSchema = z.object({
 
 export const getArticleIds = async (): Promise<string[]> => {
 	// read all directories in static/articles
-	const articleIds = await fs.promises.readdir('static/articles');
+	const articleIds = await fs.promises.readdir(`static/articles`);
 
 	// check if the article is published
 	const articleIdsPublished = articleIds.filter(async (id) => {
@@ -51,7 +52,7 @@ export const getArticle = async (id: string): Promise<Article | null> => {
 	const images = await fs.promises.readdir(`static/articles/${id}/images`);
 	const articleImages = images.map((image) => {
 		return {
-			url: `/articles/${id}/images/${image}`,
+			url: `${base}/articles/${id}/images/${image}`,
 			alt: image.split('.')[0].replace(/_/g, ' ')
 		};
 	});
@@ -61,7 +62,7 @@ export const getArticle = async (id: string): Promise<Article | null> => {
 		meta: articleMeta,
 		content,
 		description,
-		coverImage: { url: `/articles/${id}/${cover}`, alt },
+		coverImage: { url: `${base}/articles/${id}/${cover}`, alt },
 		images: articleImages
 	};
 

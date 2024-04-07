@@ -17,8 +17,6 @@
 		const center = box.top + box.height / 2 - y;
 
 		y = (center - window.innerHeight / 2) * (speed - 1);
-
-		// console.log(y);
 	}
 
 	const eased = (v: number): number => {

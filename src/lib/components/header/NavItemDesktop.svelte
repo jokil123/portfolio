@@ -10,7 +10,7 @@
 		<div class="navText" style="width: {collapsed ? 0 : width}rem;">
 			{text}
 		</div>
-		<img class="plus" class:collapsed src="/images/decoration_plus.svg" alt="decoration" />
+		<img class="plus" class:collapsed src={`${base}/images/decoration_plus.svg`} alt="decoration" />
 	</div>
 </a>
 

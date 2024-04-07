@@ -21,17 +21,27 @@
 <header on:mouseenter={enter} on:mouseleave={leave} class:expanded={$headerExpanded}>
 	<nav class="headerTop">
 		<div class="headerElement logo">
-			<a href="/">J<b>L</b></a>
+			<a href={`${base}/`}>J<b>L</b></a>
 		</div>
-		<!-- <NavItemDesktop href="/" text="Home" /> -->
-		<NavItemDesktop href="/about" text="About Me" collapsed={!$headerExpanded} width={5} />
-		<NavItemDesktop href="/projects" text="Projects" collapsed={!$headerExpanded} width={4} />
-		<NavItemDesktop href="/contact" text="Contact" collapsed={!$headerExpanded} width={4} />
+		<!-- <NavItemDesktop href={`${base}/`} text="Home" /> -->
+		<NavItemDesktop href={`${base}/about`} text="About Me" collapsed={!$headerExpanded} width={5} />
+		<NavItemDesktop
+			href={`${base}/projects`}
+			text="Projects"
+			collapsed={!$headerExpanded}
+			width={4}
+		/>
+		<NavItemDesktop
+			href={`${base}/contact`}
+			text="Contact"
+			collapsed={!$headerExpanded}
+			width={4}
+		/>
 
 		<div class="spacer"></div>
 		<img
 			class="headerElement"
-			src="/images/header_decoration.svg"
+			src={`${base}/images/header_decoration.svg`}
 			alt="logo"
 			style={'margin-right: 0'}
 		/>

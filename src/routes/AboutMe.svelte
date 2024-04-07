@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
@@ -12,13 +13,13 @@
 				<TextFrame>
 					<h1 class="title">About <b>Me</b></h1>
 				</TextFrame>
-				<img class="mugshot" src="/images/mugshot.jpg" alt="placeholder" />
+				<img class="mugshot" src={`${base}/images/mugshot.jpg`} alt="placeholder" />
 			</div>
 			<div class="verticalDesc">
-				<a class="download" href="/cv.pdf" download>
+				<a class="download" href={`${base}/cv.pdf`} download>
 					<TextDecoration plus line>
 						CV
-						<img class="linkIcon" src="/images/link_icon.svg" alt="decoration" />
+						<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" />
 					</TextDecoration>
 				</a>
 				<p class="aboutMeText">

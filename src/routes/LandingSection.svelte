@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
 
@@ -19,7 +20,7 @@
 			</div>
 
 			<video autoplay muted>
-				<source src="/videos/final_cropped.mp4" type="video/mp4" />
+				<source src={`${base}/videos/final_cropped.mp4`} type="video/mp4" />
 			</video>
 		</div>
 	</ContentWidth>

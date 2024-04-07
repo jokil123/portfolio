@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import NavItem from './NavItemMobile.svelte';
+	import { base } from '$app/paths';
 
 	let open = false;
 
@@ -12,24 +13,24 @@
 <header class:open>
 	<div class="headerTop">
 		<div class="headerElement">
-			<a href="/">J<b>L</b></a>
+			<a href={`${base}/`}>J<b>L</b></a>
 		</div>
-		<img class="headerElement" src="/images/header_decoration.svg" alt="logo" />
+		<img class="headerElement" src={`${base}/images/header_decoration.svg`} alt="logo" />
 		<button class="headerElement burger" on:click={toggleMenu}>
 			{#if open}
-				<img class="burger" src="/images/header_nav_close.svg" alt="close menu" />
+				<img class="burger" src={`${base}/images/header_nav_close.svg`} alt="close menu" />
 			{:else}
-				<img class="burger" src="/images/header_burger.svg" alt="burger menu" />
+				<img class="burger" src={`${base}/images/header_burger.svg`} alt="burger menu" />
 			{/if}
 		</button>
 	</div>
 	{#if open}
 		<nav transition:fade>
 			<ul>
-				<NavItem on:click={toggleMenu} href="/" text="Home" />
-				<NavItem on:click={toggleMenu} href="/about" text="About" />
-				<NavItem on:click={toggleMenu} href="/projects" text="Projects" />
-				<NavItem on:click={toggleMenu} href="/contact" text="Contact" />
+				<NavItem on:click={toggleMenu} href={`${base}/`} text="Home" />
+				<NavItem on:click={toggleMenu} href={`${base}/about`} text="About" />
+				<NavItem on:click={toggleMenu} href={`${base}/projects`} text="Projects" />
+				<NavItem on:click={toggleMenu} href={`${base}/contact`} text="Contact" />
 			</ul>
 		</nav>
 		<div class="hide"></div>

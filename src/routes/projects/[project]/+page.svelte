@@ -5,6 +5,7 @@
 	import SvelteMarkdown from 'svelte-markdown';
 	import HeaderSpacer from '$lib/components/HeaderSpacer.svelte';
 	import ArticleRenderer from '$lib/components/articleRenderer/ArticleRenderer.svelte';
+	import { base } from '$app/paths';
 
 	export let data;
 </script>
@@ -24,7 +25,7 @@
 		})}
 	/>
 
-	<a class="back" href="/projects"><h1><b>Back</b></h1></a>
+	<a class="back" href={`${base}/projects`}><h1><b>Back</b></h1></a>
 </div>
 
 <style>

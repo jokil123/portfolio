@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { headerExpanded } from '$lib/stores/headerExpanded';
 	import { headerType } from '$lib/stores/headerType';
 
@@ -7,10 +8,18 @@
 </script>
 
 <div class="grid" class:expanded class:mobile>
-	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner top left" />
-	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner top right" />
-	<img src="/images/frame_corner_alt.svg" alt="corner decoration" class="corner bottom left" />
-	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner bottom right" />
+	<img src={`${base}/images/frame_corner.svg`} alt="corner decoration" class="corner top left" />
+	<img src={`${base}/images/frame_corner.svg`} alt="corner decoration" class="corner top right" />
+	<img
+		src={`${base}/images/frame_corner_alt.svg`}
+		alt="corner decoration"
+		class="corner bottom left"
+	/>
+	<img
+		src={`${base}/images/frame_corner.svg`}
+		alt="corner decoration"
+		class="corner bottom right"
+	/>
 </div>
 
 <style lang="scss">

@@ -1,13 +1,19 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let shift = false;
 </script>
 
 <div class="container" class:shift>
-	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner top left" />
+	<img src={`${base}/images/frame_corner.svg`} alt="corner decoration" class="corner top left" />
 	<div class="content">
 		<slot />
 	</div>
-	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner bottom right" />
+	<img
+		src={`${base}/images/frame_corner.svg`}
+		alt="corner decoration"
+		class="corner bottom right"
+	/>
 </div>
 
 <style lang="scss">

@@ -9,6 +9,7 @@
 	import TextFrame from '$lib/components/TextFrame.svelte';
 	import windowSize from '$lib/stores/windowSize';
 	import Overlay from '$lib/components/Overlay.svelte';
+	import { base } from '$app/paths';
 
 	export let articles: Article[];
 
@@ -37,9 +38,9 @@
 				{/each}
 			</div>
 
-			<a class="moreProjectsLink" href="/projects"
+			<a class="moreProjectsLink" href={`${base}/projects`}
 				>More Projects
-				<img class="linkIcon" src="/images/link_icon.svg" alt="decoration" />
+				<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" />
 			</a>
 		</div>
 	</ContentWidth>

@@ -8,7 +8,6 @@
 
 	// set what type of header to display based on window size
 	$: headerType.set($windowSize.width < breakpoint ? 'mobile' : 'desktop');
-	$: console.log($headerType);
 </script>
 
 {#if $windowSize.width < breakpoint}

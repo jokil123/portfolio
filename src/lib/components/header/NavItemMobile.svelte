@@ -5,7 +5,7 @@
 
 <li on:click>
 	<a {href}>{text}</a>
-	<img src="/images/decoration_plus.svg" alt="logo" />
+	<img src={`${base}/images/decoration_plus.svg`} alt="logo" />
 	<div class="line"></div>
 </li>
 
