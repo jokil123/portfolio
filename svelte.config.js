@@ -15,13 +15,13 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 
+			fallback: '404.html',
 			precompress: false,
 			strict: true
 		}),
 		paths: {
-            // base: 'https://jokil123.github.io/portfolio'
-            base: process.argv.includes("dev") ? "" : process.env.BASE_PATH
+			// base: 'https://jokil123.github.io/portfolio'
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		}
 	}
 };
