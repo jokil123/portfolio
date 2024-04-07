@@ -6,7 +6,7 @@
 	export let text = '';
 </script>
 
-<img src={`${base}/${href}`} {title} alt={text} />
+<img src={`${base}/${href.replace(/^\//, '')}`} {title} alt={text} />
 
 <style>
 	img {
