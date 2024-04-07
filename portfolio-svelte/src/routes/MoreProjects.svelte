@@ -20,8 +20,6 @@
 		}
 		return a;
 	}
-
-	const articleLimit = 3;
 </script>
 
 <Page>
@@ -30,14 +28,19 @@
 			<TextFrame>
 				<h1 class="title">More <b>Projects</b></h1>
 			</TextFrame>
-			<Overlay>
-				<div class="fadeout" slot="overlay"></div>
-				<div class="projectsGrid">
-					{#each makeShitUp(articles, 100) as article}
-						<img class="projectImage" src={article.coverImage.url} alt={article.coverImage.alt} />
-					{/each}
-				</div>
-			</Overlay>
+
+			<!-- <div class="projectsGridContainer"> -->
+			<div class="projectsGrid">
+				<div class="fadeout"></div>
+				{#each makeShitUp(articles, 100) as article}
+					<img class="projectImage" src={article.coverImage.url} alt={article.coverImage.alt} />
+				{/each}
+			</div>
+
+			<a class="moreProjectsLink" href="/projects"
+				>More Projects
+				<img class="linkIcon" src="/images/link_icon.svg" alt="decoration" />
+			</a>
 		</div>
 	</ContentWidth>
 </Page>
@@ -48,18 +51,26 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		height: 100vh;
+
+		box-sizing: border-box;
+		padding-top: 7rem;
+		padding-bottom: 2rem;
 	}
 
 	.title {
 		margin-bottom: 2rem;
 		margin: 0.5rem 1rem;
+		text-align: center;
 	}
 
-	// a 2xn grid of projects
 	.projectsGrid {
 		margin-top: 2rem;
 		overflow: hidden;
-		height: 28rem;
+		position: relative;
+
+		height: 0;
+		flex-grow: 1;
 
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(calc(100px + 20%), 1fr));
@@ -76,7 +87,49 @@
 	.fadeout {
 		width: 100%;
 		height: 10rem;
-		align-self: flex-end;
 		background: linear-gradient(transparent, rgb(0, 0, 0));
+		bottom: 0;
+		position: absolute;
+	}
+
+	.moreProjectsLink {
+		margin-top: 2rem;
+		font-size: 1rem;
+	}
+
+	.linkIcon {
+		height: 1em;
+	}
+
+	.projectGridContainer {
+		width: 100%;
+		// height: 25rem;
+		flex-grow: 1;
+		background-color: blue;
+		position: relative;
+	}
+
+	@media (min-width: 768px) {
+		.moreProjects {
+			height: auto;
+		}
+
+		.projectsGrid {
+			height: 40rem;
+		}
+
+		.moreProjectsLink {
+			font-size: 1.25rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.projectsGrid {
+			height: 50rem;
+		}
+
+		.moreProjectsLink {
+			font-size: 1.5rem;
+		}
 	}
 </style>

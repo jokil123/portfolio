@@ -36,6 +36,7 @@
 
 <style>
 	.contactMe {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -46,7 +47,7 @@
 	}
 
 	.title {
-		margin: 0.5rem 1rem;
+		margin: 0.5rem 0.75rem;
 	}
 
 	.linkIcon {
@@ -73,7 +74,7 @@
 
 	@media (min-width: 768px) {
 		.title {
-			font-size: 3.75rem;
+			font-size: 3rem;
 			text-align: left;
 		}
 
@@ -88,6 +89,12 @@
 		.linkItem {
 			justify-content: flex-start;
 			font-size: 2.25rem;
+		}
+	}
+
+	@media (min-width: 1180px) {
+		.title {
+			font-size: 3.75rem;
 		}
 	}
 </style>

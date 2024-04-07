@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { headerExpanded } from '$lib/stores/headerExpanded';
-	$: shrink = $headerExpanded;
+	import { headerType } from '$lib/stores/headerType';
+
+	$: expanded = $headerExpanded && $headerType === 'desktop';
+	$: mobile = $headerType === 'mobile';
 </script>
 
-<div class="grid" class:shrink>
+<div class="grid" class:expanded class:mobile>
 	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner top left" />
 	<img src="/images/frame_corner.svg" alt="corner decoration" class="corner top right" />
 	<img src="/images/frame_corner_alt.svg" alt="corner decoration" class="corner bottom left" />
@@ -21,18 +24,22 @@
 		width: 100vw;
 		height: 100vh;
 		box-sizing: border-box;
-		padding-top: 3rem;
+		padding-top: 3.5rem;
 		// z-index: -1000;
 		pointer-events: none;
 		transition: padding-top var(--header-duration);
 	}
 
-	.grid.shrink {
+	.grid.expanded {
+		padding-top: 6rem;
+	}
+
+	.grid.mobile {
 		padding-top: 5rem;
 	}
 
 	.corner {
-		margin: 3rem;
+		margin: 2rem;
 
 		&.top.left {
 			grid-column: 1;
@@ -70,6 +77,8 @@
 		}
 
 		.corner {
+			height: 5.5rem;
+
 			margin: 1rem;
 
 			&.top.left {
@@ -90,4 +99,25 @@
 			}
 		}
 	}
+
+	@media (max-width: 1024px) {
+		.grid {
+			padding-top: 4rem;
+
+			&.expanded {
+				padding-top: 6rem;
+			}
+		}
+
+		.corner {
+			margin: 1rem;
+		}
+	}
+
+	// Hide the grid if the screen is too small
+	// @media (max-width: 375px) {
+	// 	.grid {
+	// 		display: none;
+	// 	}
+	// }
 </style>

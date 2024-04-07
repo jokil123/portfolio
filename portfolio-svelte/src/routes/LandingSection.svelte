@@ -9,7 +9,7 @@
 	<ContentWidth>
 		<div class="container">
 			<div class="text">
-				<h1>Joshua <b>Lung</b></h1>
+				<h1 class="title">Joshua <b>Lung</b></h1>
 				<div class="subheading">
 					<span>Making Computers do Stuff</span>
 					<div class="line"></div>
@@ -19,7 +19,7 @@
 			</div>
 
 			<video autoplay muted>
-				<source src="/videos/final.webm" type="video/mp4" />
+				<source src="/videos/final_cropped.mp4" type="video/mp4" />
 			</video>
 		</div>
 	</ContentWidth>
@@ -34,10 +34,13 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
+
 		box-shadow: 0 0 10rem 15rem var(--background-color);
+		height: 100%;
 	}
 
-	h1 {
+	.title {
 		font-weight: 300;
 		font-size: 3em;
 		text-align: center;
@@ -73,10 +76,11 @@
 
 	video {
 		width: 100%;
-		aspect-ratio: 1.25;
-		object-fit: cover;
-		margin-top: 5rem;
 		max-width: 600px;
+	}
+
+	.text {
+		margin-bottom: 1rem;
 	}
 
 	@media (min-width: 768px) {
@@ -85,6 +89,7 @@
 			width: 100%;
 			font-size: 1.5em;
 			height: 100vh;
+			justify-content: unset;
 		}
 
 		.text,
@@ -96,6 +101,10 @@
 		video {
 			justify-self: end;
 			z-index: -1;
+			margin-bottom: 0;
+			height: unset;
+			flex-grow: 0;
+			margin-top: 0;
 		}
 
 		.text {

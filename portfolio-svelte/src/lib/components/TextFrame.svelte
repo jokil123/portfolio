@@ -27,6 +27,8 @@
 	}
 
 	.corner {
+		height: 5.5rem;
+
 		&.top.left {
 			grid-column: 1;
 			grid-row: 1;

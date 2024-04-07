@@ -6,8 +6,14 @@
 	div {
 		box-sizing: border-box;
 		display: block;
-		padding: 0 2rem;
+		padding: 0 2.5rem;
 		width: 100%;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	@media (min-width: 768px) {

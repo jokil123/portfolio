@@ -36,3 +36,10 @@ a:hover {
 b {
 	font-weight: 700;
 }
+
+/* "Responsive design" lol */
+@media (max-width: 375px) {
+	:root {
+		font-size: 0.75rem;
+	}
+}
