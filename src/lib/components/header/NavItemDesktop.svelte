@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let href = '';
 	export let text = '';
 	export let width: number; // the width of the text in rem

@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let name: string;
-	$: src = `/images/project_icon_${name}.svg`;
+	$: src = `${base}/images/project_icon_${name}.svg`;
 	$: alt = name;
 </script>
 

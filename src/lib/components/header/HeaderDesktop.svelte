@@ -2,6 +2,7 @@
 	import NavItemDesktop from './NavItemDesktop.svelte';
 	import { headerExpanded } from '$lib/stores/headerExpanded';
 	import { scrollPosition } from '$lib/stores/scrollPosition';
+	import { base } from '$app/paths';
 
 	let scrollCollapse = false;
 	$: scrollCollapse = $scrollPosition.y < 100;
