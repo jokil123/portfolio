@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: 'main'
+  workflworkflow_dispatch: # Manually trigger the workflow
 
 jobs:
   build_site:
