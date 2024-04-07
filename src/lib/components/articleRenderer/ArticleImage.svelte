@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let href = '';
 	export let title: undefined = undefined;
 	export let text = '';
 </script>
 
-<img src={href} {title} alt={text} />
+<img src={`${base}/${href}`} {title} alt={text} />
 
 <style>
 	img {
