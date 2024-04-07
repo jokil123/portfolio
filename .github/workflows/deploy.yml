@@ -22,9 +22,9 @@ jobs:
         run: npm install
 
       - name: build
-        env:
-          # BASE_PATH: '/${{ github.event.repository.name }}' use this when deploying to a github pages default url
-          BASE_PATH: '/'
+        # Use this when deploying to a github pages default url
+        # env:
+          # BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           npm run build
 
