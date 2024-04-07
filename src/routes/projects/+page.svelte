@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import HeaderSpacer from '$lib/components/HeaderSpacer.svelte';
 
 	let indecies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -11,7 +12,7 @@
 	<h1><b>Projects</b></h1>
 
 	{#each data.props.articles as article}
-		<a href={`projects/${article.id}`}>
+		<a href={`${base}/projects/${article.id}`}>
 			<img src={article.coverImage.url} alt={article.coverImage.alt} />
 			<h2>{article.meta.title}</h2>
 		</a>

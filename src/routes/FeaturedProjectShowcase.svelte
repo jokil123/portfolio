@@ -9,6 +9,7 @@
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Scroller from '$lib/components/Scroller.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
+	import { base } from '$app/paths';
 
 	export let article: Article;
 	export let invert: boolean = true;
@@ -39,7 +40,7 @@
 						<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
 					</Scroller>
 				{:else}
-					<ReadMore href={`/projects/${article.id}`}>
+					<ReadMore href={`${base}/projects/${article.id}`}>
 						<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
 					</ReadMore>
 				{/if}
