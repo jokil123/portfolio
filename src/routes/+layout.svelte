@@ -9,3 +9,17 @@
 <PageFrame />
 
 <slot />
+
+<svelte:head>
+	<title>Joshua Lung - Making Computers do Stuff</title>
+	<meta
+		name="description"
+		content="My portfolio page. Giving an overview of the projects I've done"
+	/>
+	<meta
+		name="keywords"
+		content="Joshua Lung, Portfolio, Projects, Computer Science, Software Engineering"
+	/>
+	<meta name="author" content="Joshua Lung" />
+	<link rel="canonical" href="https://joshualung.com" />
+</svelte:head>
