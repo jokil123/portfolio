@@ -96,6 +96,7 @@
 	.moreProjectsLink {
 		margin-top: 2rem;
 		font-size: 1rem;
+		color: white;
 	}
 
 	.linkIcon {

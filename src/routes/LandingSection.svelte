@@ -2,8 +2,7 @@
 	import { base } from '$app/paths';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
-
-	let breakpoint = 768;
+	import IntroAnimation from '$lib/components/IntroAnimation.svelte';
 </script>
 
 <Page>
@@ -12,16 +11,16 @@
 			<div class="text">
 				<h1 class="title">Joshua <b>Lung</b></h1>
 				<div class="subheading">
-					<span>Making Computers do Stuff</span>
+					<span> Making Computers do Stuff</span>
 					<div class="line"></div>
 					<div class="circle"></div>
 					<div class="circle"></div>
 				</div>
 			</div>
 
-			<video autoplay muted>
-				<source src={`${base}/videos/final_cropped.mp4`} type="video/mp4" />
-			</video>
+			<div class="animationContainer">
+				<IntroAnimation />
+			</div>
 		</div>
 	</ContentWidth>
 </Page>
@@ -75,13 +74,13 @@
 		text-align: center;
 	}
 
-	video {
-		width: 100%;
-		max-width: 600px;
-	}
-
 	.text {
 		margin-bottom: 1rem;
+	}
+
+	.animationContainer {
+		width: 100%;
+		max-width: 600px;
 	}
 
 	@media (min-width: 768px) {
@@ -94,12 +93,12 @@
 		}
 
 		.text,
-		video {
+		.animationContainer {
 			grid-column: 1;
 			grid-row: 1;
 		}
 
-		video {
+		.animationContainer {
 			justify-self: end;
 			z-index: -1;
 			margin-bottom: 0;

@@ -20,7 +20,6 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			// base: 'https://jokil123.github.io/portfolio'
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		}
 	}

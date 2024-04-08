@@ -10,7 +10,7 @@
 	$: headerType.set($windowSize.width < breakpoint ? 'mobile' : 'desktop');
 </script>
 
-{#if $windowSize.width < breakpoint}
+{#if $headerType === 'mobile'}
 	<HeaderMobile />
 {:else}
 	<HeaderDesktop />
