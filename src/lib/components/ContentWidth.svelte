@@ -1,4 +1,9 @@
-<div>
+<script lang="ts">
+	// well this is just cursed isn't it
+	export let style: string = '';
+</script>
+
+<div {style}>
 	<slot />
 </div>
 

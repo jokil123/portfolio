@@ -1,26 +1,12 @@
 <script lang="ts">
 	import type { Article } from '$lib/cms';
-	import BoldTitle from '$lib/components/BoldTitle.svelte';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import Page from '$lib/components/Page.svelte';
-	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
-	import ReadMore from '$lib/components/ReadMore.svelte';
-	import TextDecoration from '$lib/components/TextDecoration.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
-	import windowSize from '$lib/stores/windowSize';
-	import Overlay from '$lib/components/Overlay.svelte';
 	import { base } from '$app/paths';
+	import makeShitUp from '$lib/makeShitUp';
 
 	export let articles: Article[];
-
-	// repeats or shortens the array to a given length
-	function makeShitUp(o: Article[], n: number): Article[] {
-		const a = [];
-		for (let i = 0; i < n; i++) {
-			a.push(o[i % o.length]);
-		}
-		return a;
-	}
 </script>
 
 <Page>

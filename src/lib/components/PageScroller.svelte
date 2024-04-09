@@ -2,6 +2,8 @@
 <script lang="ts">
 	import { scrollPosition } from '$lib/stores/scrollPosition';
 
+	export let scrollSnapMobile: boolean = true;
+
 	let div: HTMLElement;
 
 	const updateScroll = (e: UIEvent) => {
@@ -9,13 +11,12 @@
 	};
 </script>
 
-<div on:scroll={updateScroll} bind:this={div}>
+<div on:scroll={updateScroll} bind:this={div} class:scrollSnapMobile>
 	<slot />
 </div>
 
 <style>
 	div {
-		scroll-snap-type: y mandatory;
 		overflow-y: scroll;
 		overscroll-behavior-y: contain;
 		height: 100vh;
@@ -23,14 +24,17 @@
 		scrollbar-width: none; /* Firefox */
 	}
 
+	div.scrollSnapMobile {
+		scroll-snap-type: y mandatory;
+	}
+
 	div::-webkit-scrollbar {
 		display: none; /* Safari and Chrome */
 	}
 
 	@media (min-width: 768px) {
-		div {
+		div.scrollSnapMobile {
 			scroll-snap-type: none;
-			/* overflow-y: scroll; */
 		}
 	}
 </style>

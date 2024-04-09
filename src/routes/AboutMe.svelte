@@ -79,7 +79,7 @@
 	@media (min-width: 768px) {
 		.aboutMe {
 			/* background-color: red; */
-			margin-top: 15rem;
+			margin-top: 20rem;
 		}
 
 		.title {

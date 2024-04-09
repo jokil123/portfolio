@@ -1,4 +1,5 @@
 import { getArticleIds, getArticle, type Article } from '$lib/cms';
+import { collectFilters } from '$lib/collectFilters';
 
 export async function load() {
 	const articleIds = await getArticleIds();
@@ -20,7 +21,8 @@ export async function load() {
 
 	return {
 		props: {
-			articles
+			articles,
+			filters: collectFilters(articles)
 		}
 	};
 }
