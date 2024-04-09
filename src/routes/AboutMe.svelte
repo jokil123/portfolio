@@ -9,25 +9,25 @@
 <Page>
 	<ContentWidth>
 		<div class="aboutMe">
-			<div class="verticalTitle">
-				<TextFrame>
-					<h1 class="title">About <b>Me</b></h1>
-				</TextFrame>
+			<TextFrame>
+				<h1 class="title">About <b>Me</b></h1>
+			</TextFrame>
+			<div class="horizontal">
 				<img class="mugshot" src={`${base}/images/mugshot.jpg`} alt="placeholder" />
-			</div>
-			<div class="verticalDesc">
-				<a class="download" href={`${base}/cv.pdf`} download>
-					<TextDecoration plus line>
-						CV
-						<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" />
-					</TextDecoration>
-				</a>
-				<p class="aboutMeText">
-					Hello! My name is Joshua Lung and I'm a Student from Austria at HTL Dornbirn, with
-					experience in both Back-end and Front-end development. I am interested in the world of
-					technology, finance and machine learning and enjoy to contribute to impactful projects and
-					learn new things.
-				</p>
+				<div class="verticalDesc">
+					<a class="download" href={`${base}/cv.pdf`} download>
+						<TextDecoration plus line>
+							CV
+							<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" />
+						</TextDecoration>
+					</a>
+					<p class="aboutMeText">
+						Hello! My name is Joshua Lung and I'm a Student from Austria at HTL Dornbirn, with
+						experience in both Back-end and Front-end development. I am interested in the world of
+						technology, finance and machine learning and enjoy to contribute to impactful projects
+						and learn new things.
+					</p>
+				</div>
 			</div>
 		</div>
 	</ContentWidth>
@@ -47,13 +47,13 @@
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
 		width: 100%;
-		max-width: 25rem;
+		max-width: 30rem;
 	}
 
 	.download {
 		text-decoration: none;
 		color: var(--text-color);
-		font-size: 2.5em;
+		font-size: 2em;
 		font-weight: bold;
 		width: 100%;
 	}
@@ -73,41 +73,58 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		max-width: 25rem;
-	}
-
-	.verticalTitle {
-		display: contents;
+		max-width: 30rem;
 	}
 
 	@media (min-width: 768px) {
 		.aboutMe {
-			width: auto;
-			flex-direction: row;
-			justify-content: space-between;
-			height: 75vh;
+			/* background-color: red; */
+			margin-top: 15rem;
+		}
+
+		.title {
+			font-size: 3rem;
+		}
+
+		.horizontal {
+			margin-top: 1rem;
+		}
+
+		.download {
+			font-size: 2.5em;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.horizontal {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: center;
+			align-items: start;
+			gap: 2rem;
 		}
 
 		.verticalDesc {
 			flex-direction: column-reverse;
 		}
 
-		.verticalTitle {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			gap: 3rem;
+		.mugshot {
+			width: 1%;
+			flex-grow: 1;
+		}
+
+		.horizontal {
+			margin-top: 3rem;
 		}
 	}
 
-	@media (min-width: 1536px) {
-		.verticalTitle {
-			display: contents;
+	@media (min-width: 1180px) {
+		.title {
+			font-size: 3.75rem;
 		}
 
-		.aboutMe {
-			flex-direction: row-reverse;
+		.horizontal {
+			gap: 5rem;
 		}
 	}
 </style>
