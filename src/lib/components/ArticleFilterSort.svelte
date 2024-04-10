@@ -134,12 +134,14 @@
 		flex-direction: row;
 		justify-content: space-between;
 		gap: 1.25rem;
+		flex-wrap: wrap;
 		// align-items: center;
 	}
 
 	.setting {
 		display: flex;
 		flex-direction: row;
+		align-items: center;
 		gap: 0.5rem;
 
 		select {
@@ -231,5 +233,25 @@
 
 	.grower {
 		flex-grow: 1;
+	}
+
+	@media (max-width: 1060px) {
+		.resultCount {
+			display: none;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.grower {
+			display: none;
+		}
+
+		.searchBar {
+			flex-grow: 1;
+		}
+
+		.clear {
+			display: none;
+		}
 	}
 </style>
