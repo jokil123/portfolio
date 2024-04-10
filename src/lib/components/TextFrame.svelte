@@ -2,9 +2,10 @@
 	import { base } from '$app/paths';
 
 	export let shift = false;
+	export let margin: string = '0';
 </script>
 
-<div class="container" class:shift>
+<div class="container" class:shift style={`margin: ${margin}`}>
 	<img src={`${base}/images/frame_corner.svg`} alt="corner decoration" class="corner top left" />
 	<div class="content">
 		<slot />

@@ -1,5 +1,6 @@
 import { getArticleIds, getArticle, type Article } from '$lib/cms';
 import { collectFilters } from '$lib/collectFilters';
+import makeShitUp from '$lib/makeShitUp';
 
 export async function load() {
 	const articleIds = await getArticleIds();
@@ -21,7 +22,7 @@ export async function load() {
 
 	return {
 		props: {
-			articles,
+			articles: makeShitUp(articles, 100),
 			filters: collectFilters(articles)
 		}
 	};

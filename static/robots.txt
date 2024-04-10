@@ -1,1 +1,2 @@
 User-agent: * Disallow: 
+Sitemap: http://www.joshualung.com/sitemap.xml

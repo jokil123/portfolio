@@ -2,121 +2,118 @@
 	import { base } from '$app/paths';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
-	import makeShitUp from '$lib/makeShitUp';
 	import PageScroller from '$lib/components/PageScroller.svelte';
 	import type { Article } from '$lib/cms';
 	import { constructFilterFunc, type Filter } from '$lib/collectFilters';
+	import ArticleFilterSort from '$lib/components/ArticleFilterSort.svelte';
+	import HeaderSpacer from '$lib/components/HeaderSpacer.svelte';
+	import ReadMore from '$lib/components/ReadMore.svelte';
 
 	export let data;
+	let filteredArticles: Article[] = data.props.articles;
 
-	let sortMethod: string = 'Newest';
-	let sortMethods: { name: string; sortFn: (a: Article, b: Article) => boolean }[] = [
-		{
-			name: 'Newest',
-			sortFn: (a, b) => new Date(a.meta.publishTimestamp) > new Date(b.meta.publishTimestamp)
-		},
-		{
-			name: 'Oldest',
-			sortFn: (a, b) => new Date(a.meta.publishTimestamp) < new Date(b.meta.publishTimestamp)
-		},
-		{
-			name: 'A-Z',
-			sortFn: (a, b) => a.meta.title < b.meta.title
-		},
-		{
-			name: 'Z-A',
-			sortFn: (a, b) => a.meta.title > b.meta.title
-		}
-	];
-
-	$: console.log(sortMethod);
-
-	let searchQuery: string = '';
-
-	let selectedFilters: Filter[] = [];
-
-	// const filterSortArticles = (articles: Article[]): Article[] => {
-	// 	let filteredArticles = articles.filter((article) => {
-	// 		if (selectedFilters.length === 0) return true;
-
-	// 		for (let filter of selectedFilters) {
-	// 			let filterFunc = constructFilterFunc(filter);
-	// 			if (!filterFunc(article)) return false;
-	// 		}
-	// 	});
-
-	// 	let sortedArticles = filteredArticles.sort((a, b) => {
-	// 		let sortMethodObj = sortMethods.find((method) => method.name === sortMethod);
-	// 		return sortMethodObj?.sortFn(a, b);
-	// 	});
-	// };
+	let displayMethod: 'grid' | 'list' = 'grid';
 </script>
 
 <PageScroller scrollSnapMobile={false}>
 	<ContentWidth style="justify-content: unset">
 		<div class="content">
-			<div class="headerSpacer"></div>
-			<TextFrame><h1 class="title">Projects</h1></TextFrame>
+			<HeaderSpacer />
+			<TextFrame margin="5rem 0 2rem 0"><h1 class="title">Projects</h1></TextFrame>
 
-			<div class="viewSettings">
-				<!-- <p><b>Settings</b></p> -->
-				<div>
-					<p>Sort</p>
-					<select bind:value={sortMethod}>
-						{#each sortMethods as method}
-							<option value={method.name}>{method.name}</option>
-						{/each}
-					</select>
+			<ArticleFilterSort
+				articles={data.props.articles}
+				filterList={data.props.filters}
+				bind:filteredArticles
+				bind:displayMethod
+			/>
+
+			{#if displayMethod === 'list'}
+				<div class="projectsList">
+					<hr />
+					{#each filteredArticles as article}
+						<div class="project">
+							<img
+								class="coverImage"
+								src={article.coverImage.url}
+								alt={article.coverImage.alt}
+								loading="lazy"
+							/>
+							<a href={`${base}/projects/${article.id}`}>
+								<h2>{article.meta.title}</h2>
+							</a>
+						</div>
+						<hr />
+					{/each}
 				</div>
-
-				<div>
-					<p>Filter</p>
-					<select
-						on:change={(e) => {
-							console.log(e);
-						}}
-					>
-						{#each data.props.filters as filter}
-							<option value={filter}>{filter.name}</option>
-						{/each}
-					</select>
+			{/if}
+			{#if displayMethod === 'grid'}
+				<div class="projectsGrid">
+					{#each filteredArticles as article}
+						<ReadMore href={`${base}/projects/${article.id}`} text={article.meta.title}>
+							<img
+								class="coverImage"
+								src={article.coverImage.url}
+								alt={article.coverImage.alt}
+								loading="lazy"
+							/>
+						</ReadMore>
+					{/each}
 				</div>
+			{/if}
 
-				<p>Display</p>
-				<input type="text" placeholder="Search" bind:value={searchQuery} />
-			</div>
-			<div class="activeFilters">
-				{#each selectedFilters as filter}
-					<span>{filter}</span>
-				{/each}
-			</div>
-
-			<div class="projects">
-				{#each makeShitUp(data.props.articles, 100) as article}
-					<a href={`${base}/projects/${article.id}`}>
-						<img
-							class="coverImage"
-							src={article.coverImage.url}
-							alt={article.coverImage.alt}
-							loading="lazy"
-						/>
-					</a>
-				{/each}
-			</div>
+			{#if filteredArticles.length === 0}
+				<div class="noProjects">
+					<p>No projects found :/</p>
+					<p><i>Have a look at this ramdom cat instead:</i></p>
+					<img src="https://cataas.com/cat" alt="Random cat" />
+				</div>
+			{/if}
 		</div>
-		<div></div>
 	</ContentWidth>
 </PageScroller>
 
-<style>
-	.projects {
+<style lang="scss">
+	.projectsGrid {
+		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 		gap: 1rem;
+
+		.coverImage {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 
-	.headerSpacer {
-		height: 5rem;
+	.projectsList {
+		width: 100%;
+
+		.project {
+			// width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 2rem;
+
+			.coverImage {
+				width: 10rem;
+				aspect-ratio: 16/9;
+				object-fit: cover;
+			}
+
+			h2 {
+				font-weight: 300;
+				font-size: 1.25rem;
+			}
+		}
+
+		hr {
+			margin: 1.25rem 0rem;
+			opacity: 0.5;
+			border-bottom: none;
+		}
 	}
 
 	.title {
@@ -124,25 +121,25 @@
 		font-weight: bold;
 	}
 
-	.coverImage {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
 	.content {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.viewSettings {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-	}
-
 	a {
 		color: var(--text-color);
+	}
+
+	.noProjects {
+		text-align: center;
+		width: 100%;
+
+		img {
+			width: 100%;
+			max-width: 20rem;
+			margin: 1rem 0;
+		}
 	}
 </style>

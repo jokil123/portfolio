@@ -1,11 +1,12 @@
 <script lang="ts">
 	import Overlay from './Overlay.svelte';
 	export let href: string = '';
+	export let text: string = 'Read More...';
 </script>
 
 <Overlay>
 	<slot />
-	<a {href} class="readMore" slot="overlay">Read More... </a>
+	<a {href} class="readMore" slot="overlay">{text}</a>
 </Overlay>
 
 <style>
@@ -29,6 +30,10 @@
 	a {
 		font-size: 1rem;
 		font-weight: 700;
+		color: var(--text-color);
+	}
+
+	a:hover {
 		color: var(--text-color);
 	}
 </style>

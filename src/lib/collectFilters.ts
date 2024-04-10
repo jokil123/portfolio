@@ -41,3 +41,55 @@ export const constructFilterFunc = (filter: Filter): ((article: Article) => bool
 	}
 	throw new Error('Unknown filter type');
 };
+
+export const sortMethods: { name: string; sortFn: (a: Article, b: Article) => number }[] = [
+	{
+		name: 'Newest',
+		sortFn: (a, b) => {
+			return (
+				new Date(b.meta.publishTimestamp).getTime() - new Date(a.meta.publishTimestamp).getTime()
+			);
+		}
+	},
+	{
+		name: 'Oldest',
+		sortFn: (a, b) => {
+			return (
+				new Date(a.meta.publishTimestamp).getTime() - new Date(b.meta.publishTimestamp).getTime()
+			);
+		}
+	},
+	{
+		name: 'A-Z',
+		sortFn: (a, b) => {
+			return a.meta.title.localeCompare(b.meta.title);
+		}
+	},
+	{
+		name: 'Z-A',
+		sortFn: (a, b) => {
+			return b.meta.title.localeCompare(a.meta.title);
+		}
+	}
+];
+
+export const filterSortArticles = (
+	articles: Article[],
+	filters: Filter[],
+	search: string,
+	sortMethod: string
+): Article[] => {
+	let filteredArticles = articles;
+	for (let filter of filters) {
+		filteredArticles = filteredArticles.filter(constructFilterFunc(filter));
+	}
+
+	let sortMethodObj = sortMethods.find((method) => method.name === sortMethod);
+	let sortMethodFn = sortMethodObj ? sortMethodObj : sortMethods[0];
+
+	let sortedArticles = filteredArticles.sort((a, b) => {
+		return sortMethodFn.sortFn(a, b);
+	});
+
+	return sortedArticles;
+};

@@ -4,7 +4,6 @@
 	import Page from '$lib/components/Page.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
 	import { base } from '$app/paths';
-	import makeShitUp from '$lib/makeShitUp';
 
 	export let articles: Article[];
 </script>
@@ -19,7 +18,7 @@
 			<!-- <div class="projectsGridContainer"> -->
 			<div class="projectsGrid">
 				<div class="fadeout"></div>
-				{#each makeShitUp(articles, 100) as article}
+				{#each articles as article}
 					<img class="projectImage" src={article.coverImage.url} alt={article.coverImage.alt} />
 				{/each}
 			</div>
@@ -41,7 +40,7 @@
 		height: 100vh;
 
 		box-sizing: border-box;
-		padding-top: 7rem;
+		padding-top: 2rem;
 		padding-bottom: 2rem;
 	}
 
@@ -99,6 +98,7 @@
 
 	@media (min-width: 768px) {
 		.moreProjects {
+			padding-top: 7rem;
 			height: auto;
 		}
 
