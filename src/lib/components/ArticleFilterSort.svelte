@@ -22,8 +22,6 @@
 		filteredArticles;
 		randomQueryTime = Math.random() / 5 + 0.1;
 	}
-
-	$: console.log(selectedFilters);
 </script>
 
 <div class="container">

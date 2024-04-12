@@ -22,7 +22,15 @@ export async function load() {
 
 	return {
 		props: {
-			articles: makeShitUp(articles, 100),
+			articles: [
+				...articles,
+				...makeShitUp(articles, 100).map((a) => {
+					let b = { ...a };
+					b.meta.published = false;
+					// console.log(b);
+					return b;
+				})
+			],
 			filters: collectFilters(articles)
 		}
 	};

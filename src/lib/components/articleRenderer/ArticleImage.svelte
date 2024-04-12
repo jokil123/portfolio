@@ -11,5 +11,7 @@
 <style>
 	img {
 		width: 100%;
+		box-sizing: border-box;
+		padding: 0 2rem;
 	}
 </style>

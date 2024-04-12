@@ -19,7 +19,7 @@ export const collectFilters = (articles: Article[]): Filter[] => {
 	// Add years
 	const years = new Set<string>();
 	articles.forEach((article) => {
-		years.add(new Date(article.meta.publishTimestamp).getFullYear().toString());
+		years.add(new Date(article.meta.publishTimestamp * 1000).getFullYear().toString());
 	});
 
 	return [
@@ -37,7 +37,7 @@ export const constructFilterFunc = (filter: Filter): ((article: Article) => bool
 		return (article: Article) => article.meta.tools.includes(filter.name);
 	} else if (filter.filterType === 'year') {
 		return (article: Article) =>
-			new Date(article.meta.publishTimestamp).getFullYear().toString() === filter.name;
+			new Date(article.meta.publishTimestamp * 1000).getFullYear().toString() === filter.name;
 	}
 	throw new Error('Unknown filter type');
 };
@@ -47,7 +47,8 @@ export const sortMethods: { name: string; sortFn: (a: Article, b: Article) => nu
 		name: 'Newest',
 		sortFn: (a, b) => {
 			return (
-				new Date(b.meta.publishTimestamp).getTime() - new Date(a.meta.publishTimestamp).getTime()
+				new Date(b.meta.publishTimestamp * 1000).getTime() -
+				new Date(a.meta.publishTimestamp * 1000).getTime()
 			);
 		}
 	},
@@ -55,7 +56,8 @@ export const sortMethods: { name: string; sortFn: (a: Article, b: Article) => nu
 		name: 'Oldest',
 		sortFn: (a, b) => {
 			return (
-				new Date(a.meta.publishTimestamp).getTime() - new Date(b.meta.publishTimestamp).getTime()
+				new Date(a.meta.publishTimestamp * 1000).getTime() -
+				new Date(b.meta.publishTimestamp * 1000).getTime()
 			);
 		}
 	},
