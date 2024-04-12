@@ -7,7 +7,13 @@ export type Filter = {
 	filterType: FilterType;
 };
 
-export const collectFilters = (articles: Article[]): Filter[] => {
+export type Filters = {
+	tags: Filter[];
+	tools: Filter[];
+	years: Filter[];
+};
+
+export const collectFilters = (articles: Article[]): Filters => {
 	const tags = new Set<string>();
 	const tools = new Set<string>();
 
@@ -22,11 +28,11 @@ export const collectFilters = (articles: Article[]): Filter[] => {
 		years.add(new Date(article.meta.publishTimestamp * 1000).getFullYear().toString());
 	});
 
-	return [
-		...Array.from(tags).map((tag) => ({ name: tag, filterType: 'tag' as FilterType })),
-		...Array.from(tools).map((tool) => ({ name: tool, filterType: 'tool' as FilterType })),
-		...Array.from(years).map((year) => ({ name: year, filterType: 'year' as FilterType }))
-	];
+	return {
+		tags: Array.from(tags).map((tag) => ({ name: tag, filterType: 'tag' }) as Filter),
+		tools: Array.from(tools).map((tool) => ({ name: tool, filterType: 'tool' }) as Filter),
+		years: Array.from(years).map((year) => ({ name: year, filterType: 'year' }) as Filter)
+	};
 };
 
 // this has to be done so Filter is serializable

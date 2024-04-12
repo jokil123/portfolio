@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import type { Article } from '$lib/cms';
-	import { filterSortArticles, type Filter, sortMethods } from '$lib/collectFilters';
+	import { filterSortArticles, type Filter, sortMethods, type Filters } from '$lib/collectFilters';
 
 	export let displayMethod: 'grid' | 'list' = 'grid';
 
 	export let articles: Article[];
-	export let filterList: Filter[];
+	export let filterList: Filters;
 
 	export let filteredArticles: Article[] = articles;
 
@@ -26,7 +26,6 @@
 
 <div class="container">
 	<div class="viewSettings">
-		<!-- <p><b>Settings</b></p> -->
 		<div class="setting">
 			<p>Sort by</p>
 			<select bind:value={sortMethod}>
@@ -40,17 +39,34 @@
 			<p>Filter</p>
 			<select
 				on:change={(e) => {
+					if (e.currentTarget.value === '') return;
+
 					// check if the filter is already selected (do this by value comparison, not reference comparison because the filter objects are different instances)
 					const filter = JSON.parse(e.currentTarget.value);
 
 					if (!selectedFilters.some((f) => JSON.stringify(f) === e.currentTarget.value)) {
 						selectedFilters = [...selectedFilters, filter];
 					}
+
+					e.currentTarget.value = '';
 				}}
 			>
-				{#each filterList as filter}
-					<option value={JSON.stringify(filter)}>{filter.name}</option>
-				{/each}
+				<option value="">Select a filter</option>
+				<optgroup label="Tags">
+					{#each filterList.tags as filter}
+						<option value={JSON.stringify(filter)}>{filter.name}</option>
+					{/each}
+				</optgroup>
+				<optgroup label="Tools">
+					{#each filterList.tools as filter}
+						<option value={JSON.stringify(filter)}>{filter.name}</option>
+					{/each}
+				</optgroup>
+				<optgroup label="Years">
+					{#each filterList.years as filter}
+						<option value={JSON.stringify(filter)}>{filter.name}</option>
+					{/each}
+				</optgroup>
 			</select>
 		</div>
 
@@ -146,12 +162,18 @@
 			margin: 0.5rem 0;
 			padding: 0.5rem;
 			background-color: transparent;
+			border: 1px solid rgba(255, 255, 255, 0.5);
 			color: white;
 			// border: none;
 			font-family: unset;
 		}
 
 		select option {
+			background-color: rgb(10, 10, 10);
+			border-radius: 0;
+		}
+
+		select optgroup {
 			background-color: rgb(10, 10, 10);
 			border-radius: 0;
 		}
