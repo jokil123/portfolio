@@ -84,7 +84,7 @@
 			flex-direction: row;
 			margin: 0 0rem;
 			/* margin-bottom: 15rem; */
-			height: 100vh;
+			height: 100dvh;
 		}
 
 		.linkItem {

@@ -19,7 +19,7 @@
 	}
 
 	.spacer {
-		height: 100vh;
+		height: 100dvh;
 	}
 
 	p {

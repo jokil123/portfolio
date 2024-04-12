@@ -19,7 +19,7 @@
 	div {
 		overflow-y: scroll;
 		overscroll-behavior-y: contain;
-		height: 100vh;
+		height: 100dvh;
 		-ms-overflow-style: none; /* Internet Explorer 10+ */
 		scrollbar-width: none; /* Firefox */
 	}

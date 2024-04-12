@@ -88,7 +88,7 @@
 			display: grid;
 			width: 100%;
 			font-size: 1.5em;
-			height: 100vh;
+			height: 100dvh;
 			justify-content: unset;
 		}
 

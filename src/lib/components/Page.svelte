@@ -9,7 +9,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		height: 100vh;
+		height: 100dvh;
 		scroll-snap-align: start;
 
 		box-sizing: border-box;

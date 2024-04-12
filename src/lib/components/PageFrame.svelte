@@ -31,7 +31,7 @@
 		grid-template-columns: 0rem 1fr 0rem;
 		grid-template-rows: 0rem 1fr 0rem;
 		width: 100vw;
-		height: 100vh;
+		height: 100dvh;
 		box-sizing: border-box;
 		padding-top: 3.5rem;
 		// z-index: -1000;
