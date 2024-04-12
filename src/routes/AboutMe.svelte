@@ -76,6 +76,22 @@
 		max-width: 30rem;
 	}
 
+	@media (max-width: 375px) {
+		.aboutMeText {
+			font-size: 1.25rem;
+			margin-top: 0;
+		}
+
+		.mugshot {
+			margin-top: 0.5rem;
+			margin-bottom: 0;
+		}
+
+		.download {
+			margin-top: 0.5rem;
+		}
+	}
+
 	@media (min-width: 768px) {
 		.aboutMe {
 			/* background-color: red; */
