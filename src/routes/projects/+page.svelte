@@ -19,7 +19,7 @@
 	<ContentWidth style="justify-content: unset">
 		<div class="content">
 			<HeaderSpacer />
-			<TextFrame margin="5rem 0 2rem 0"><h1 class="title">Projects</h1></TextFrame>
+			<TextFrame margin="2rem 0"><h1 class="title">Projects</h1></TextFrame>
 
 			<ArticleFilterSort
 				articles={data.props.articles}
@@ -126,6 +126,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding-top: 3rem;
+		padding-bottom: 5rem;
 	}
 
 	a {

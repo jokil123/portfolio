@@ -3,10 +3,10 @@
 - FF I
 - FF II
 - Roche Building Competition
-- Brackeys Game Jam I
-- Brackeys Game Jam II
-- Brackeys Game Jam III
-- GMTK Game Jam I
+  <!-- - Brackeys Game Jam I -->
+  <!-- - Brackeys Game Jam II -->
+  <!-- - Brackeys Game Jam III -->
+  <!-- - GMTK Game Jam I -->
 - Boss Fight Render Challenge
 - Fahrradturm Diplomarbeit
 - This Website 🤡
@@ -31,6 +31,7 @@
 - Curve median
 - Mandelbrot
 - Particle Field
+- Innodays
 
 # Incomplete Projects
 

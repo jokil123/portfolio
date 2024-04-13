@@ -1,9 +1,8 @@
 {
-    "title": "Brackeys Gamejam \n2022.1",
+    "title": "Brackeys Gamejam 2021.1\nPinball",
     "published": true,
-    "publishTimestamp": 1707667319,
-    "featured": true,
-    "featuredRank": 2,
+    "publishTimestamp": 1630188000,
+    "featured": 2,
     "tags": [
         "dev",
         "3d",
@@ -11,8 +10,6 @@
     ],
     "tools": [
         "unity",
-        "git",
-        "photoshop",
         "c#",
         "cinema 4d"
     ]

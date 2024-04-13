@@ -2,8 +2,7 @@
     "title": "Fisherman's Friend\nGaming Challenge",
     "published": true,
     "publishTimestamp": 1707687319,
-    "featured": true,
-    "featuredRank": 1,
+    "featured": 1,
     "tags": [
         "dev",
         "3d",

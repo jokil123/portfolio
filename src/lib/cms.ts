@@ -6,8 +6,7 @@ const ArticleMetaSchema = z.object({
 	title: z.string(),
 	published: z.boolean(),
 	publishTimestamp: z.number(),
-	featured: z.boolean(),
-	featuredRank: z.number(),
+	featured: z.number().optional().or(z.null()),
 	tags: z.array(z.string()),
 	tools: z.array(z.string())
 });
@@ -34,6 +33,10 @@ export const getArticle = async (id: string): Promise<Article | null> => {
 
 	const metaStr = await fs.promises.readFile(`static/articles/${id}/meta.json`, 'utf8');
 	const articleMeta = ArticleMetaSchema.parse(JSON.parse(metaStr));
+	// if article feature is undefined, set it to null
+	if (articleMeta.featured === undefined) {
+		articleMeta.featured = null;
+	}
 
 	const content: string = await fs.promises.readFile(`static/articles/${id}/content.md`, 'utf8');
 	const description: string = await fs.promises.readFile(
@@ -59,7 +62,7 @@ export const getArticle = async (id: string): Promise<Article | null> => {
 
 	const article: Article = {
 		id,
-		meta: articleMeta,
+		meta: articleMeta as ArticleMeta,
 		content,
 		description,
 		coverImage: { url: `${base}/articles/${id}/${cover}`, alt },
@@ -73,8 +76,7 @@ export type ArticleMeta = {
 	title: string;
 	published: boolean;
 	publishTimestamp: number;
-	featured: boolean;
-	featuredRank: number;
+	featured: number | null; // null if not featured, otherwise rank
 	tags: string[];
 	tools: string[];
 };
