@@ -21,5 +21,7 @@
 		content="Joshua Lung, Portfolio, Projects, Computer Science, Software Engineering"
 	/>
 	<meta name="author" content="Joshua Lung" />
+	<meta name="color-scheme" content="only dark" />
+	<meta name="theme-color" content="#000000" />
 	<link rel="canonical" href="https://joshualung.com" />
 </svelte:head>
