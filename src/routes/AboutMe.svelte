@@ -15,10 +15,12 @@
 			<div class="horizontal">
 				<img class="mugshot" src={`${base}/images/mugshot.jpg`} alt="placeholder" />
 				<div class="verticalDesc">
-					<a class="download" href={`${base}/cv.pdf`} download>
+					<!-- Disabled until I have a good cv -->
+					<!-- <a class="download" href={`${base}/cv.pdf`} download> -->
+					<a class="download" href={``} style="cursor: default">
 						<TextDecoration plus line>
-							CV
-							<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" />
+							<!-- CV -->
+							<!-- <img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" /> -->
 						</TextDecoration>
 					</a>
 					<p class="aboutMeText">
