@@ -51,8 +51,14 @@ export const getArticle = async (id: string): Promise<Article | null> => {
 
 	const alt = cover.split('.')[0].replace(/_/g, ' ');
 
-	// find all images in images folder
-	const images = await fs.promises.readdir(`static/articles/${id}/images`);
+	// find all images in images folder, if it doesnt exist set images to null
+	let images: string[];
+	try {
+		images = await fs.promises.readdir(`static/articles/${id}/images`);
+	} catch (e) {
+		images = [];
+	}
+
 	const articleImages = images.map((image) => {
 		return {
 			url: `${base}/articles/${id}/images/${image}`,

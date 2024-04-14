@@ -39,15 +39,18 @@
 		<div class="content">
 			<ArticleRenderer source={data.article.content} />
 		</div>
-		<MediaCarousel
-			media={data.article.images.map((i) => {
-				return {
-					type: 'CarouselImage',
-					url: i.url,
-					alt: i.alt
-				};
-			})}
-		/>
+
+		{#if data.article.images.length > 0}
+			<MediaCarousel
+				media={data.article.images.map((i) => {
+					return {
+						type: 'CarouselImage',
+						url: i.url,
+						alt: i.alt
+					};
+				})}
+			/>
+		{/if}
 
 		<a class="back" href={`${base}/projects`}><h1><b>Back</b></h1></a>
 	</div>

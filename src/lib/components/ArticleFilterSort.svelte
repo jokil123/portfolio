@@ -51,7 +51,7 @@
 					e.currentTarget.value = '';
 				}}
 			>
-				<option value="">Select a filter</option>
+				<option value="">Select</option>
 				<optgroup label="Tags">
 					{#each filterList.tags as filter}
 						<option value={JSON.stringify(filter)}>{filter.name}</option>
