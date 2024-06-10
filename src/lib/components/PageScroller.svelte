@@ -24,17 +24,7 @@
 		scrollbar-width: none; /* Firefox */
 	}
 
-	div.scrollSnapMobile {
-		scroll-snap-type: y mandatory;
-	}
-
 	div::-webkit-scrollbar {
 		display: none; /* Safari and Chrome */
-	}
-
-	@media (min-width: 768px) {
-		div.scrollSnapMobile {
-			scroll-snap-type: none;
-		}
 	}
 </style>

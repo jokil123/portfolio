@@ -1,39 +1,47 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
-	import Page from '$lib/components/Page.svelte';
+	import SectionSpacer from '$lib/components/SectionSpacer.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
 </script>
 
-<Page>
-	<ContentWidth>
-		<div class="aboutMe">
-			<TextFrame>
-				<h1 class="title">About <b>Me</b></h1>
-			</TextFrame>
-			<div class="horizontal">
-				<img class="mugshot" src={`${base}/images/mugshot.jpg`} alt="placeholder" />
-				<div class="verticalDesc">
-					<!-- Disabled until I have a good cv -->
-					<!-- <a class="download" href={`${base}/cv.pdf`} download> -->
-					<a class="download" href={``} style="cursor: default">
-						<TextDecoration plus line>
-							<!-- CV -->
-							<!-- <img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" /> -->
-						</TextDecoration>
-					</a>
-					<p class="aboutMeText">
-						Hello! My name is Joshua Lung and I'm a Student from Austria at HTL Dornbirn, with
-						experience in both Back-end and Front-end development. I am interested in the world of
-						technology, finance and machine learning and enjoy to contribute to impactful projects
-						and learn new things.
+<ContentWidth>
+	<div class="aboutMe">
+		<TextFrame>
+			<h1 class="title">About <b>Me</b></h1>
+		</TextFrame>
+		<div class="horizontal">
+			<img class="mugshot" src={`${base}/images/mugshot.jpg`} alt="placeholder" />
+			<div class="verticalDesc">
+				<!-- Disabled until I have a good cv -->
+				<!-- <a class="download" href={`${base}/cv.pdf`} download> -->
+				<a class="download" href={``} style="cursor: default">
+					<TextDecoration plus line>
+						<!-- CV -->
+						<!-- <img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="decoration" /> -->
+					</TextDecoration>
+				</a>
+				<div class="aboutMeText">
+					<p><b>Heya, I’m Joshua, I like making computers do the work for me.</b></p>
+					<p>
+						Be it running the games I carefully crafted during another burnout inducing game jam,
+						rendering some of my 3D files, or crunching the numbers on some irrelevant problem I
+						want to know the answer to. I’m mostly self-taught in the world of computer science, but
+						know my way around it quite well, be it Python, TypeScript, Go, Rust or C#, I might even
+						be able to reverse a binary tree ;)
+					</p>
+					<p>
+						I have a background in product management & engineering as I studied “Product Management
+						& FutureTecs” at the HTL Dornbirn in Austria and plan to study engineering in
+						university. I love programming & working on machinery and I especially love starting
+						projects that I never finish (I mean just have look at my GitHub)
 					</p>
 				</div>
 			</div>
 		</div>
-	</ContentWidth>
-</Page>
+	</div>
+</ContentWidth>
 
 <style>
 	.title {
@@ -97,7 +105,7 @@
 	@media (min-width: 768px) {
 		.aboutMe {
 			/* background-color: red; */
-			margin-top: 20rem;
+			/* margin-top: 20rem; */
 		}
 
 		.title {
