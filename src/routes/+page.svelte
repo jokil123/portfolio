@@ -4,9 +4,9 @@
 	import ContactMe from './ContactMe.svelte';
 	import FeaturedProjectShowcase from './FeaturedProjectShowcase.svelte';
 	import LandingSection from './LandingSection.svelte';
-	import Page from '$lib/components/Page.svelte';
 	import PageScroller from '$lib/components/PageScroller.svelte';
 	import Footer from './Footer.svelte';
+	import SectionSpacer from '$lib/components/SectionSpacer.svelte';
 
 	export let data;
 </script>
@@ -18,14 +18,17 @@
 		return a.meta.featured;
 	}) as article, i}
 		<FeaturedProjectShowcase {article} invert={i % 2 == 1} />
+		<SectionSpacer />
 	{/each}
 
 	<MoreProjects articles={data.props.articles} />
+	<SectionSpacer />
 
 	<AboutMe />
-	<ContactMe />
+	<SectionSpacer />
 
-	<Page>
-		<Footer />
-	</Page>
+	<ContactMe />
+	<SectionSpacer />
+
+	<Footer />
 </PageScroller>

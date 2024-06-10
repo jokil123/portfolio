@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Page from '$lib/components/Page.svelte';
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import type { Article } from '$lib/cms';

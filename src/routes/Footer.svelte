@@ -6,6 +6,8 @@
 <style>
 	footer {
 		text-align: center;
+		margin-top: 3rem;
+		margin-bottom: 5rem;
 	}
 
 	@media (min-width: 768px) {

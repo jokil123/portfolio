@@ -1,7 +1,6 @@
 <script lang="ts">
 	import BoldTitle from '$lib/components/BoldTitle.svelte';
 
-	import Page from '$lib/components/Page.svelte';
 	import ProjectIcon from '$lib/components/ProjectIcon.svelte';
 	import ReadMore from '$lib/components/ReadMore.svelte';
 	import type { Article } from '$lib/cms';
@@ -15,39 +14,37 @@
 	export let invert: boolean = true;
 </script>
 
-<Page>
-	<ContentWidth>
-		<div class="projectShowcase" class:invert>
-			<div class="projectInfo">
-				<div class="projectIcons">
-					{#each article.meta.tags as tag}
-						<ProjectIcon name={tag} />
-					{/each}
-				</div>
-				{#if $windowSize.width > 768}
-					<TextFrame shift>
-						<BoldTitle title={article.meta.title} align="left" />
-					</TextFrame>
-				{:else}
-					<BoldTitle title={article.meta.title} />
-				{/if}
+<ContentWidth>
+	<div class="projectShowcase" class:invert>
+		<div class="projectInfo">
+			<div class="projectIcons">
+				{#each article.meta.tags as tag}
+					<ProjectIcon name={tag} />
+				{/each}
+			</div>
+			{#if $windowSize.width > 768}
+				<TextFrame shift>
+					<BoldTitle title={article.meta.title} align="left" />
+				</TextFrame>
+			{:else}
+				<BoldTitle title={article.meta.title} />
+			{/if}
 
-				<p>{article.description}</p>
-			</div>
-			<div class="projectImage">
-				{#if $windowSize.width > 768}
-					<Scroller speed={0.75}>
-						<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
-					</Scroller>
-				{:else}
-					<ReadMore href={`${base}/projects/${article.id}`}>
-						<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
-					</ReadMore>
-				{/if}
-			</div>
+			<p>{article.description}</p>
 		</div>
-	</ContentWidth>
-</Page>
+		<div class="projectImage">
+			{#if $windowSize.width > 768}
+				<Scroller speed={0.75}>
+					<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
+				</Scroller>
+			{:else}
+				<ReadMore href={`${base}/projects/${article.id}`}>
+					<img class="projectPreview" src={article.coverImage.url} alt={article.coverImage.alt} />
+				</ReadMore>
+			{/if}
+		</div>
+	</div>
+</ContentWidth>
 
 <style lang="scss">
 	.projectShowcase {
@@ -92,7 +89,7 @@
 			display: grid;
 			width: 100%;
 			justify-content: unset;
-			margin: 20rem auto;
+			margin: 15rem auto;
 		}
 
 		.projectShowcase > * {

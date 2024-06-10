@@ -1,7 +1,6 @@
 <script lang="ts">
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
-	import Page from '$lib/components/Page.svelte';
 	import TextDecoration from '$lib/components/TextDecoration.svelte';
 	import { base } from '$app/paths';
 
@@ -13,27 +12,25 @@
 	];
 </script>
 
-<Page>
-	<ContentWidth>
-		<div class="contactMe">
-			<TextFrame>
-				<h1 class="title">Contact <b>Me</b></h1>
-			</TextFrame>
-			<ul class="links">
-				{#each items as item}
-					<li class="linkItem">
-						<a href={item.href} target="_blank" rel="noopener noreferrer">
-							<TextDecoration plus>
-								{item.text}
-								<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="icon" />
-							</TextDecoration>
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	</ContentWidth>
-</Page>
+<ContentWidth>
+	<div class="contactMe">
+		<TextFrame>
+			<h1 class="title">Contact <b>Me</b></h1>
+		</TextFrame>
+		<ul class="links">
+			{#each items as item}
+				<li class="linkItem">
+					<a href={item.href} target="_blank" rel="noopener noreferrer">
+						<TextDecoration plus>
+							{item.text}
+							<img class="linkIcon" src={`${base}/images/link_icon.svg`} alt="icon" />
+						</TextDecoration>
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
+</ContentWidth>
 
 <style>
 	.contactMe {
@@ -41,6 +38,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
+		/* margin-bottom: 10rem; */
 	}
 
 	.links {
@@ -84,7 +83,7 @@
 			flex-direction: row;
 			margin: 0 0rem;
 			/* margin-bottom: 15rem; */
-			height: 100dvh;
+			/* height: 100dvh; */
 		}
 
 		.linkItem {

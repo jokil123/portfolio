@@ -1,29 +1,26 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
-	import Page from '$lib/components/Page.svelte';
 	import IntroAnimation from '$lib/components/IntroAnimation.svelte';
 </script>
 
-<Page>
-	<ContentWidth>
-		<div class="container">
-			<div class="text">
-				<h1 class="title">Joshua <b>Lung</b></h1>
-				<div class="subheading">
-					<span> Making Computers do Stuff</span>
-					<div class="line"></div>
-					<div class="circle"></div>
-					<div class="circle"></div>
-				</div>
-			</div>
-
-			<div class="animationContainer">
-				<IntroAnimation />
+<ContentWidth>
+	<div class="container">
+		<div class="text">
+			<h1 class="title">Joshua <b>Lung</b></h1>
+			<div class="subheading">
+				<span> Making Computers do Stuff</span>
+				<div class="line"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
 			</div>
 		</div>
-	</ContentWidth>
-</Page>
+
+		<div class="animationContainer">
+			<IntroAnimation />
+		</div>
+	</div>
+</ContentWidth>
 
 <style>
 	:root {
@@ -37,7 +34,10 @@
 		justify-content: center;
 
 		box-shadow: 0 0 10rem 15rem var(--background-color);
-		height: 100%;
+		height: 100vh;
+		/* padding-top: 0rem;
+		box-sizing: border-box; */
+		margin-bottom: 4rem;
 	}
 
 	.title {
