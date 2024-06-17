@@ -3,6 +3,7 @@
 	import ContentWidth from '$lib/components/ContentWidth.svelte';
 	import TextFrame from '$lib/components/TextFrame.svelte';
 	import { base } from '$app/paths';
+	import ReadMore from '$lib/components/ReadMore.svelte';
 
 	export let articles: Article[];
 </script>
@@ -17,7 +18,9 @@
 		<div class="projectsGrid">
 			<div class="fadeout"></div>
 			{#each articles as article}
-				<img class="projectImage" src={article.coverImage.url} alt={article.coverImage.alt} />
+				<ReadMore href={`${base}/projects/${article.id}`}>
+					<img class="projectImage" src={article.coverImage.url} alt={article.coverImage.alt} />
+				</ReadMore>
 			{/each}
 		</div>
 
