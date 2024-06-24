@@ -7,7 +7,7 @@
 </script>
 
 <ContentWidth>
-	<div class="aboutMe">
+	<div class="aboutMe" id="aboutMe">
 		<TextFrame>
 			<h1 class="title">About <b>Me</b></h1>
 		</TextFrame>

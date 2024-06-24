@@ -27,4 +27,8 @@
 	div::-webkit-scrollbar {
 		display: none; /* Safari and Chrome */
 	}
+
+	div {
+		scroll-behavior: smooth;
+	}
 </style>

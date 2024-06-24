@@ -13,7 +13,7 @@
 </script>
 
 <ContentWidth>
-	<div class="contactMe">
+	<div class="contactMe" id="contact">
 		<TextFrame>
 			<h1 class="title">Contact <b>Me</b></h1>
 		</TextFrame>

@@ -28,9 +28,9 @@
 		<nav transition:fade>
 			<ul>
 				<NavItem on:click={toggleMenu} href={`${base}/`} text="Home" />
-				<NavItem on:click={toggleMenu} href={`${base}/about`} text="About" />
+				<NavItem on:click={toggleMenu} href={`${base}/#aboutMe`} text="About" />
 				<NavItem on:click={toggleMenu} href={`${base}/projects`} text="Projects" />
-				<NavItem on:click={toggleMenu} href={`${base}/contact`} text="Contact" />
+				<NavItem on:click={toggleMenu} href={`${base}/#contact`} text="Contact" />
 			</ul>
 		</nav>
 		<div class="hide"></div>

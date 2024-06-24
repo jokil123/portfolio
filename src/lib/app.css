@@ -43,3 +43,7 @@ b {
 		font-size: 0.75rem;
 	}
 }
+
+:target {
+	scroll-margin-top: 10rem;
+}

@@ -25,7 +25,12 @@
 			<a href={`${base}/`}>J<b>L</b></a>
 		</div>
 		<!-- <NavItemDesktop href={`${base}/`} text="Home" /> -->
-		<NavItemDesktop href={`${base}/about`} text="About Me" collapsed={!$headerExpanded} width={5} />
+		<NavItemDesktop
+			href={`${base}/#aboutMe`}
+			text="About Me"
+			collapsed={!$headerExpanded}
+			width={5}
+		/>
 		<NavItemDesktop
 			href={`${base}/projects`}
 			text="Projects"
@@ -33,7 +38,7 @@
 			width={4}
 		/>
 		<NavItemDesktop
-			href={`${base}/contact`}
+			href={`${base}/#contact`}
 			text="Contact"
 			collapsed={!$headerExpanded}
 			width={4}
