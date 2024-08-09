@@ -7,8 +7,8 @@
 	let items = [
 		{ text: 'Email', href: 'mailto://joshua.lung@outlook.at' },
 		{ text: 'LinkedIn', href: 'https://www.linkedin.com/in/joshua-lung-167896244' },
-		{ text: 'GitHub', href: 'https://github.com' },
-		{ text: 'Artstation', href: 'https://artstation.com' }
+		{ text: 'GitHub', href: 'https://github.com/jokil123' },
+		{ text: 'Artstation', href: 'https://www.artstation.com/jo_kil' }
 	];
 </script>
 
