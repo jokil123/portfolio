@@ -56,6 +56,8 @@
 
 	.projectImage {
 		width: 100%;
+		/* Add filter to image to make it visible better */
+		filter: brightness(0.5);
 	}
 
 	.projectPreview {
@@ -72,13 +74,9 @@
 		align-items: center;
 		justify-content: center;
 		// margin-bottom: 2rem;
-		background-color: rgb(var(--background-color), 0.25);
-		box-shadow: 0 0 5rem 10rem rgba(var(--background-color), 0.25);
+		// background-color: rgb(rgb(2, 2, 2), 0.25);
+		// box-shadow: 0 0 5rem 5rem rgba(rgb(2, 2, 2), 0.25);
 	}
-
-	/* a {
-		text-decoration: none;
-	} */
 
 	@media (min-width: 768px) {
 		.projectIcons {
@@ -108,8 +106,6 @@
 		.projectImage {
 			width: 75%;
 			max-width: 800px;
-			/* Add filter to image to make it visible better */
-			filter: brightness(0.75);
 			z-index: -1;
 		}
 

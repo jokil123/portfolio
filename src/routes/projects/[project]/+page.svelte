@@ -21,15 +21,15 @@
 
 		<div class="tags">
 			{#if data.article.meta.featured}
-				<div class="item">featured</div>
+				<div class="item hover-scale-105">featured</div>
 			{/if}
 
 			{#each data.article.meta.tags as tag}
-				<div class="item">{tag}</div>
+				<div class="item hover-scale-105">{tag}</div>
 			{/each}
 
 			{#each data.article.meta.tools as tool}
-				<div class="item">{tool}</div>
+				<div class="item hover-scale-105">{tool}</div>
 			{/each}
 		</div>
 

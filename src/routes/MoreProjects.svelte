@@ -69,6 +69,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		aspect-ratio: 1.618;
 	}
 
 	.fadeout {
@@ -83,6 +84,11 @@
 		margin-top: 2rem;
 		font-size: 1rem;
 		color: white;
+		transition: transform 250ms var(--bouce);
+	}
+
+	.moreProjectsLink:hover {
+		transform: scale(1.1);
 	}
 
 	.linkIcon {

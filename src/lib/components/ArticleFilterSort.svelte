@@ -28,16 +28,28 @@
 	<div class="viewSettings">
 		<div class="setting">
 			<p>Sort by</p>
-			<select bind:value={sortMethod}>
+			<select
+				bind:value={sortMethod}
+				class="hover-scale-105"
+				on:change={() => {
+					if (sortMethod != 'search') {
+						searchQuery = '';
+					}
+				}}
+			>
 				{#each sortMethods as method}
 					<option value={method.name}>{method.name}</option>
 				{/each}
+				{#if searchQuery}
+					<option value={'search'}>{'Search'}</option>
+				{/if}
 			</select>
 		</div>
 
 		<div class="setting">
 			<p>Filter</p>
 			<select
+				class="hover-scale-105"
 				on:change={(e) => {
 					if (e.currentTarget.value === '') return;
 
@@ -71,7 +83,7 @@
 		</div>
 
 		<button
-			class="clear"
+			class="clear hover-scale-105"
 			on:click={() => {
 				selectedFilters = [];
 				searchQuery = '';
@@ -83,6 +95,7 @@
 			{@html '<!-- > buys search engine -->'}
 			{@html '<!-- > looks inside -->'}
 			{@html '<!-- > random number generator -->'}
+			{@html '<!-- https://media.tenor.com/EPx4HXvJtiUAAAAe/cat-looks-inside-meme.png -->'}
 			<p>
 				{filteredArticles.length} results in {(Math.round(randomQueryTime * 100) / 100).toFixed(2)}s
 			</p>
@@ -92,14 +105,14 @@
 
 		<div class="displaySelect">
 			<button
-				class="displayButton"
+				class="displayButton hover-scale-110"
 				class:active={displayMethod === 'grid'}
 				on:click={() => (displayMethod = 'grid')}
 			>
 				<img src={`${base}/images/display_grid.png`} alt="grid view" />
 			</button>
 			<button
-				class="displayButton"
+				class="displayButton hover-scale-110"
 				class:active={displayMethod === 'list'}
 				on:click={() => (displayMethod = 'list')}
 			>
@@ -111,26 +124,29 @@
 			type="text"
 			placeholder="Search"
 			bind:value={searchQuery}
+			on:input={() => {
+				sortMethod = 'search';
+			}}
 			class="searchBar"
 			maxlength="69"
 		/>
 	</div>
 	<div class="activeFiltersList">
 		{#if searchQuery}
-			<button class="filter" on:click={() => (searchQuery = '')}>
+			<button class="filter hover-scale-105" on:click={() => (searchQuery = '')}>
 				{searchQuery}
-				<img src={`${base}/images/x_icon.png`} alt="remove filter" />
+				<img src={`${base}/images/x_icon.png`} alt="remove filter" class="hover-scale-110" />
 			</button>
 		{/if}
 		{#each selectedFilters as filter}
 			<button
-				class="filter"
+				class="filter hover-scale-105"
 				on:click={(e) => {
 					selectedFilters = selectedFilters.filter((f) => f.name !== filter.name);
 				}}
 			>
 				{filter.name}
-				<img src={`${base}/images/x_icon.png`} alt="remove filter" />
+				<img src={`${base}/images/x_icon.png`} alt="remove filter" class="hover-scale-110" />
 			</button>
 		{/each}
 	</div>

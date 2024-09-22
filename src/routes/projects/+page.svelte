@@ -39,7 +39,7 @@
 								alt={article.coverImage.alt}
 								loading="lazy"
 							/>
-							<a href={`${base}/projects/${article.id}`}>
+							<a href={`${base}/projects/${article.id}`} class="hover-scale-105">
 								<h2>{article.meta.title}</h2>
 							</a>
 						</div>
@@ -84,6 +84,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			aspect-ratio: 1.618;
 		}
 	}
 
@@ -99,7 +100,7 @@
 
 			.coverImage {
 				width: 10rem;
-				aspect-ratio: 16/9;
+				aspect-ratio: 1.618;
 				object-fit: cover;
 			}
 

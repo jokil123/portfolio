@@ -37,6 +37,7 @@
     },
     "type": "module",
     "dependencies": {
+        "string-similarity-js": "^2.1.4",
         "svelte-markdown": "^0.4.1",
         "zod": "^3.22.4"
     }

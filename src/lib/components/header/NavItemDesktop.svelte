@@ -50,5 +50,11 @@
 		text-decoration: none;
 		color: var(--text-color);
 		font-weight: 300;
+		transition: transform 250ms var(--bouce);
+	}
+
+	a:hover {
+		transform: scale(1.1);
+		/* font-weight: bold; */
 	}
 </style>

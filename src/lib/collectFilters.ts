@@ -70,13 +70,25 @@ export const sortMethods: { name: string; sortFn: (a: Article, b: Article) => nu
 	{
 		name: 'A-Z',
 		sortFn: (a, b) => {
-			return a.meta.title.localeCompare(b.meta.title);
+			if (a.meta.title.toLowerCase() < b.meta.title.toLowerCase()) {
+				return -1;
+			}
+			if (a.meta.title.toLowerCase() > b.meta.title.toLowerCase()) {
+				return 1;
+			}
+			return 0;
 		}
 	},
 	{
 		name: 'Z-A',
 		sortFn: (a, b) => {
-			return b.meta.title.localeCompare(a.meta.title);
+			if (a.meta.title.toLowerCase() < b.meta.title.toLowerCase()) {
+				return 1;
+			}
+			if (a.meta.title.toLowerCase() > b.meta.title.toLowerCase()) {
+				return -1;
+			}
+			return 0;
 		}
 	}
 ];
@@ -88,16 +100,72 @@ export const filterSortArticles = (
 	sortMethod: string
 ): Article[] => {
 	let filteredArticles = articles;
-	for (let filter of filters) {
+	for (const filter of filters) {
 		filteredArticles = filteredArticles.filter(constructFilterFunc(filter));
 	}
 
-	let sortMethodObj = sortMethods.find((method) => method.name === sortMethod);
-	let sortMethodFn = sortMethodObj ? sortMethodObj : sortMethods[0];
+	const sortMethodObj = sortMethods.find((method) => method.name === sortMethod);
 
-	let sortedArticles = filteredArticles.sort((a, b) => {
-		return sortMethodFn.sortFn(a, b);
+	let sortMethodFn;
+	if (sortMethod == 'search') {
+		sortMethodFn = sortSearch(search);
+	} else {
+		sortMethodFn = sortMethodObj ? sortMethodObj.sortFn : sortMethods[0].sortFn;
+	}
+
+	const sortedArticles = filteredArticles.sort((a, b) => {
+		return sortMethodFn(a, b);
 	});
+
+	console.log(
+		sortedArticles.map((a) => {
+			return a.meta.title;
+		})
+	);
 
 	return sortedArticles;
 };
+
+function sortSearch(query: string): (a: Article, b: Article) => number {
+	return (a: Article, b: Article) => {
+		return (
+			stringSimilarity(query, b.meta.title, 2, false) -
+			stringSimilarity(query, a.meta.title, 2, false)
+		);
+	};
+}
+
+// taken from https://github.com/stephenjjbrown/string-similarity-js
+function stringSimilarity(
+	str1: string,
+	str2: string,
+	substringLength: number,
+	caseSensitive: boolean
+) {
+	if (substringLength === void 0) {
+		substringLength = 2;
+	}
+	if (caseSensitive === void 0) {
+		caseSensitive = false;
+	}
+	if (!caseSensitive) {
+		str1 = str1.toLowerCase();
+		str2 = str2.toLowerCase();
+	}
+	if (str1.length < substringLength || str2.length < substringLength) return 0;
+	const map = new Map();
+	for (let i = 0; i < str1.length - (substringLength - 1); i++) {
+		const substr1 = str1.substr(i, substringLength);
+		map.set(substr1, map.has(substr1) ? map.get(substr1) + 1 : 1);
+	}
+	let match = 0;
+	for (let j = 0; j < str2.length - (substringLength - 1); j++) {
+		const substr2 = str2.substr(j, substringLength);
+		const count = map.has(substr2) ? map.get(substr2) : 0;
+		if (count > 0) {
+			map.set(substr2, count - 1);
+			match++;
+		}
+	}
+	return (match * 2) / (str1.length + str2.length - (substringLength - 1) * 2);
+}

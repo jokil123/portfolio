@@ -19,6 +19,7 @@
 	$: headerExpanded.set(scrollCollapse || enterCollapse);
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <header on:mouseenter={enter} on:mouseleave={leave} class:expanded={$headerExpanded}>
 	<nav class="headerTop">
 		<div class="headerElement logo">
@@ -45,13 +46,10 @@
 		/>
 
 		<div class="spacer"></div>
-		<img
-			class="headerElement"
-			src={`${base}/images/header_decoration.svg`}
-			alt="logo"
-			style={'margin-right: 0'}
-		/>
-		<div class="headerElement line" style={'margin-left: 0.75rem'}></div>
+		<div class="headerElement decoration">
+			<img src={`${base}/images/header_decoration.svg`} alt="logo" style={'margin-right: 0'} />
+			<div class="line" style={'margin-left: 0.75rem'}></div>
+		</div>
 	</nav>
 </header>
 
@@ -86,6 +84,11 @@
 
 	.logo {
 		font-size: 1.75rem;
+		transition: transform 250ms var(--bouce);
+	}
+
+	.logo:hover {
+		transform: scale(1.1);
 	}
 
 	a {
@@ -102,5 +105,15 @@
 
 	.spacer {
 		flex-grow: 1;
+	}
+
+	.decoration {
+		display: flex;
+		align-items: center;
+		transition: transform 250ms var(--bouce);
+	}
+
+	.decoration:hover {
+		transform: scale(1.05);
 	}
 </style>

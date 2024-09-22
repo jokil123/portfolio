@@ -2,6 +2,7 @@
 	--header-duration: 0.25s;
 	--text-color: rgb(255, 255, 255);
 	--background-color: rgb(2, 2, 2);
+	--bouce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 body {
@@ -46,4 +47,20 @@ b {
 
 :target {
 	scroll-margin-top: 10rem;
+}
+
+.hover-scale-105 {
+	transition: transform 250ms var(--bouce);
+}
+
+.hover-scale-105:hover {
+	transform: scale(1.05);
+}
+
+.hover-scale-110 {
+	transition: transform 250ms var(--bouce);
+}
+
+.hover-scale-110:hover {
+	transform: scale(1.1);
 }

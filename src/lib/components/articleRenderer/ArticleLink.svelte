@@ -10,4 +10,9 @@
 	a {
 		color: #00a2ff;
 	}
+
+	a:hover {
+		transform: scale(1.2);
+		color: rgb(98, 0, 255);
+	}
 </style>

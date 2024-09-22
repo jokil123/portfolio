@@ -12,5 +12,10 @@
 	.projectIcon {
 		width: 1.4rem;
 		margin: 0.2rem;
+		transition: transform 250ms var(--bouce);
+	}
+
+	.projectIcon:hover {
+		transform: scale(1.3);
 	}
 </style>

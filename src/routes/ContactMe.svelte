@@ -61,6 +61,11 @@
 		justify-content: center;
 		font-size: 2rem;
 		font-weight: bold;
+		transition: transform 250ms var(--bouce);
+	}
+
+	.linkItem:hover {
+		transform: scale(1.05) translateX(5%);
 	}
 
 	li {
