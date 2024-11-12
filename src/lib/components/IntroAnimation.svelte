@@ -47,10 +47,10 @@
 </script>
 
 <div class="videoSwitcher">
-	<video muted bind:this={startVideo} class="start">
+	<video muted bind:this={startVideo} autoplay class="start">
 		<source src={`${base}/videos/animation_start_extended.webm`} type="video/mp4" />
 	</video>
-	<video muted bind:this={loopVideo} loop class="loop">
+	<video muted bind:this={loopVideo} autoplay loop class="loop">
 		<source src={`${base}/videos/animation_loop.webm`} type="video/mp4" />
 	</video>
 </div>
