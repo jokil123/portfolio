@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { scrollPosition } from '$lib/stores/scrollPosition';
 	import { onMount } from 'svelte';
 
 	let startVideo: HTMLVideoElement;
@@ -48,10 +47,12 @@
 
 <div class="videoSwitcher">
 	<video muted bind:this={startVideo} autoplay class="start">
-		<source src={`${base}/videos/animation_start_extended.webm`} type="video/mp4" />
+		<source src={`${base}/videos/animation_start_extended.webm`} type="video/webm" />
+		<source src={`${base}/videos/animation_start_extended.mp4`} type="video/mp4" />
 	</video>
 	<video muted bind:this={loopVideo} autoplay loop class="loop">
-		<source src={`${base}/videos/animation_loop.webm`} type="video/mp4" />
+		<source src={`${base}/videos/animation_loop.webm`} type="video/webm" />
+		<source src={`${base}/videos/animation_loop.mp4`} type="video/mp4" />
 	</video>
 </div>
 
